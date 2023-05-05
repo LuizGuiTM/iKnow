@@ -13,17 +13,22 @@
 
     <label for="CPF" class="control-label">CPF</label>
     <input type="text" Name="CPF" value="@Model.Cpf" class="form-control" />
-    <span asp-validation-for="CPF" class="text-danger"></span>
+    <span asp-validation-for="Cpf" class="text-danger"></span>
     <br />
 
     <label for="DataNascimento" class="control-label">Data de nascimento</label>
-    <input type="date" Name="DataNascimento" value="@Model.DataNascimento.ToString("yyyy-MM-dd")" class="form-control" />
-    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+    <input type="date" Name="DataNascimento" value="@Model.DataNasc.ToString("yyyy-MM-dd")" class="form-control" />
+    <span asp-validation-for="DataNasc" class="text-danger"></span>
 
     <br />
-    <label for="CidadeId" class="control-label">Código da cidade</label>
-    <select asp-for="CidadeId" asp-items="ViewBag.Cidades" class="form-control"> </select>
-    <span asp-validation-for="CidadeId" class="text-danger"></span>
+    <label for="Cidade" class="control-label">Cidade</label>
+    <input type="text" Name="Cidade" value="@Model.Cidade" class="form-control" />
+    <span asp-validation-for="Cidade" class="text-danger"></span>
+    <br />
+
+    <label for="Estado" class="control-label">Estado</label>
+    <input type="text" Name="Estado" value="@Model.Estado" class="form-control" />
+    <span asp-validation-for="Estado" class="text-danger"></span>
 
     <br />
     <input type="submit" value="Salvar dados" class="btn btn-success" />
