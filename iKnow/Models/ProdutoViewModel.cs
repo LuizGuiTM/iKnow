@@ -2,7 +2,7 @@
 {
     public partial class ProdutoViewModel: PadraoViewModel
     {
-        public string Descricao { get; set; }
+        public string Nome { get; set; }
 
         public double Preco { get; set; }
 
