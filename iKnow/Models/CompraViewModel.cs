@@ -2,7 +2,7 @@
 
 namespace iKnow.Models
 {
-    public abstract class CompraViewModel: PadraoViewModel
+    public partial class CompraViewModel: PadraoViewModel
     {
         public int IdCliente { get; set; }
 
