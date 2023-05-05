@@ -205,5 +205,191 @@ namespace iKnow.DAO
         end
         GO;
         */
+
+
+
+
+        /*
+         create procedure spInsert_Compras
+            (
+             @IdCliente int,
+             @ValorTotal decimal (10,2),
+             @DataCompra datetime
+            )
+            as
+            begin
+             insert into Compras
+             (IdCliente, ValorTotal, DataCompra)
+             values
+             (@IdCliente, @ValorTotal, @DataCompra)
+            end
+            GO
+
+
+            create procedure spUpdate_Compras
+            (
+             @Id int,
+             @IdCliente int,
+             @ValorTotal decimal (10,2),
+             @DataCompra datetime
+            )
+            as
+            begin
+             update Compras set
+             IdCliente = @IdCliente,
+             ValorTotal = @ValorTotal,
+             DataCompra = @DataCompra
+             where Id = @Id
+            end
+            GO
+            create procedure spInsert_Produtos
+            (
+             @Nome varchar(max),
+             @Preco decimal (10,2),
+             @QuantidadeDisponivel int
+            )
+            as
+            begin
+             insert into Produtos
+             (Nome, Preco, QuantidadeDisponivel)
+             values
+             (@Nome, @Preco, @QuantidadeDisponivel)
+            end
+            GO
+
+
+            create procedure spUpdate_Produtos
+            (
+             @Id int,
+             @Nome varchar(max),
+             @Preco decimal (10,2),
+             @QuantidadeDisponivel int
+            )
+            as
+            begin
+             update Produtos set
+             Nome = @Nome,
+             Preco = @Preco,
+             QuantidadeDisponivel = @QuantidadeDisponivel
+             where Id = @Id
+            end
+            GO
+
+            create procedure spInsert_ItensCompra
+            (
+             @IdCompra int,
+             @IdProduto int,
+             @QuantidadeProduto int
+            )
+            as
+            begin
+             insert into ItensCompra
+             (IdCompra, IdProduto, QuantidadeProduto)
+             values
+             (@IdCompra, @IdProduto, @QuantidadeProduto)
+            end
+            GO
+
+
+            create procedure spUpdate_ItensCompra
+            (
+             @Id int,
+             @IdCompra int,
+             @IdProduto int,
+             @QuantidadeProduto int
+            )
+            as
+            begin
+             update ItensCompra set
+             IdCompra = @IdCompra,
+             IdProduto = @IdProduto,
+             QuantidadeProduto = @QuantidadeProduto
+             where Id = @Id
+            end
+            GO
+
+            create procedure spInsert_Clientes
+            (
+             @CPF varchar(20),
+             @Nome varchar(max),
+             @DataNascimento datetime,
+             @Estado varchar(100),
+             @Cidade varchar(100)
+            )
+            as
+            begin
+             insert into Clientes
+             (CPF, Nome, DataNascimento, Estado, Cidade)
+             values
+             (@CPF, @Nome, @DataNascimento, @Estado, @Cidade)
+            end
+            GO
+
+
+            create procedure spUpdate_Clientes
+            (
+             @Id int,
+             @CPF varchar(20),
+             @Nome varchar(max),
+             @DataNascimento datetime,
+             @Estado varchar(100),
+             @Cidade varchar(100)
+            )
+            as
+            begin
+             update Clientes set
+             CPF = @CPF,
+             Nome = @Nome,
+             DataNascimento = @DataNascimento,
+             Estado = @Estado,
+             Cidade = @Cidade
+             where Id = @Id
+            end
+            GO
+            create procedure spInsert_Funcionarios
+            (
+             @CPF varchar(20),
+             @Nome varchar(max),
+             @DataNascimento datetime,
+             @Salario decimal (10,2),
+             @Cargo varchar(max),
+             @Estado varchar(100),
+             @Cidade varchar(100)
+            )
+            as
+            begin
+             insert into Funcionarios
+             (CPF, Nome, DataNascimento, Salario, Cargo, Estado, Cidade)
+             values
+             (@CPF, @Nome, @DataNascimento, @Salario, @Cargo, @Estado, @Cidade)
+            end
+            GO
+
+
+            create procedure spUpdate_Funcionarios
+            (
+             @Id int,
+             @CPF varchar(20),
+             @Nome varchar(max),
+             @DataNascimento datetime,
+             @Salario decimal(10,2),
+             @Cargo varchar(max),
+             @Estado varchar(100),
+             @Cidade varchar(100)
+            )
+            as
+            begin
+             update Funcionarios set
+             CPF = @CPF,
+             Nome = @Nome,
+             DataNascimento = @DataNascimento,
+             Salario = @Salario,
+             Cargo = @Cargo,
+             Estado = @Estado,
+             Cidade = @Cidade
+             where Id = @Id
+            end
+
+         */
     }
 }

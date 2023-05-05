@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace iKnow.Models
 {
@@ -13,6 +14,5 @@ namespace iKnow.Models
         public string Cidade { get; set; }
 
         public string Estado { get; set; }
-
     }
 }

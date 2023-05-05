@@ -1,6 +1,6 @@
 ﻿namespace iKnow.Models
 {
-    public abstract class ItemCompraViewModel : PadraoViewModel
+    public partial class ItemCompraViewModel : PadraoViewModel
     {
         public int IdCompra { get; set; }
 
