@@ -1,0 +1,32 @@
+﻿@model ClienteViewModel
+@{
+    ViewData["Title"] = "Form";
+}
+
+<form action="save" method="post" class="col-md-6">
+    <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+
+    <label for="Nome" class="control-label">Nome Completo</label>
+    <input type="text" Name="Nome" value="@Model.Nome" class="form-control" />
+    <span asp-validation-for="Nome" class="text-danger"></span>
+    <br />
+
+    <label for="CPF" class="control-label">CPF</label>
+    <input type="text" Name="CPF" value="@Model.Cpf" class="form-control" />
+    <span asp-validation-for="CPF" class="text-danger"></span>
+    <br />
+
+    <label for="DataNascimento" class="control-label">Data de nascimento</label>
+    <input type="date" Name="DataNascimento" value="@Model.DataNascimento.ToString("yyyy-MM-dd")" class="form-control" />
+    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+
+    <br />
+    <label for="CidadeId" class="control-label">Código da cidade</label>
+    <select asp-for="CidadeId" asp-items="ViewBag.Cidades" class="form-control"> </select>
+    <span asp-validation-for="CidadeId" class="text-danger"></span>
+
+    <br />
+    <input type="submit" value="Salvar dados" class="btn btn-success" />
+    <br />
+</form>
+
