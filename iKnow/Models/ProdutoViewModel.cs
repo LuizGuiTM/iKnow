@@ -1,6 +1,7 @@
 ﻿namespace iKnow.Models
 {
-    public class ProdutoViewModel
+    public partial class ProdutoViewModel: PadraoViewModel
     {
+        public string Descricao
     }
 }
