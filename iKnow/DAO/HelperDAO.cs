@@ -75,6 +75,20 @@ namespace iKnow.DAO
             }
         }
 
-
+        public static DataTable testeee(string nomeProc, SqlParameter[] parametros)
+        {
+            using (SqlConnection conexao = ConexaoBD.GetConexao())
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(nomeProc, conexao))
+                {
+                    if (parametros != null)
+                        adapter.SelectCommand.Parameters.AddRange(parametros);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+                    return tabela;
+                }
+            }
+        }
     }
 }

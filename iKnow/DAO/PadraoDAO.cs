@@ -4,6 +4,8 @@ using System.Reflection.Emit;
 using System;
 using System.Data.SqlClient;
 using iKnow.Models;
+using System.Security.Cryptography.Xml;
+using Microsoft.AspNetCore.Routing;
 
 namespace iKnow.DAO
 {
@@ -72,4 +74,115 @@ namespace iKnow.DAO
             return lista;
         }
     }
+
 }
+//================================================ TABELAS ===========================================================
+/*
+--CREATE DATABASE iKnow
+
+USE iKnow
+
+
+CREATE TABLE Clientes
+(
+Id INT IDENTITY(1,1) NOT NULL primary key,
+CPF varchar(20) NOT NULL,
+Nome varchar(max),
+DataNascimento datetime NOT NULL,
+Estado varchar(100),
+Cidade varchar(100)
+)
+
+CREATE TABLE Funcionarios
+(
+Id INT IDENTITY(1,1) NOT NULL primary key,
+CPF varchar(20) NOT NULL,
+Nome varchar(max),
+DataNascimento datetime NOT NULL,
+Salario decimal (10,2),
+Cargo varchar(max),
+Estado varchar(100),
+Cidade varchar(100)
+)
+
+CREATE TABLE Produtos
+(
+Id INT IDENTITY(1,1) NOT NULL primary key,
+Nome varchar(max),
+Preco decimal(10, 2),
+QuantidadeDisponivel int
+)
+
+CREATE TABLE Compras
+(
+Id INT IDENTITY(1,1) NOT NULL primary key,
+IdCliente INT NOT NULL,
+ValorTotal decimal(10,2),
+DataCompra datetime
+
+CONSTRAINT FK_Compras_IdCliente FOREIGN KEY (IdCliente) REFERENCES Clientes(Id)
+)
+
+CREATE TABLE ItensCompra
+(
+Id INT IDENTITY(1,1) NOT NULL primary key,
+IdCompra int NOT NULL,
+IdProduto int NOT NULL,
+QuantidadeProduto int
+
+CONSTRAINT FK_ItensCompra_IdCompra FOREIGN KEY (IdCompra) REFERENCES Compras(Id),
+CONSTRAINT FK_ItensCompra_IdProduto FOREIGN KEY (IdProduto) REFERENCES Produtos(Id)
+)
+ */
+
+
+//================================================ Procs ===========================================================
+/*
+Create procedure spDelete
+(
+ @id int ,
+ @tabela varchar(max)
+)
+as
+begin
+ declare @sql varchar(max);
+set @sql = ' delete ' + @tabela +
+' where id = ' + cast(@id as varchar(max))
+ exec(@sql)
+end
+GO
+
+create procedure spConsulta
+(
+ @id int ,
+ @tabela varchar(max)
+)
+as
+begin
+ declare @sql varchar(max);
+set @sql = 'select * from ' + @tabela +
+' where id = ' + cast(@id as varchar(max))
+ exec(@sql)
+end
+GO
+
+create procedure spListagem
+(
+ @tabela varchar(max),
+ @ordem varchar(max))
+as
+begin
+ exec('select * from ' + @tabela +
+ ' order by ' + @ordem)
+end
+GO
+
+create procedure spProximoId
+(@tabela varchar(max))
+as
+begin
+ exec('select isnull(max(id) +1, 1) as MAIOR from '
+ + @tabela)
+end
+GO;
+*/
