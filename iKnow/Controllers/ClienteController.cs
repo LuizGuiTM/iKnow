@@ -14,5 +14,9 @@ namespace iKnow.Controllers
         {
             return View(new ClienteViewModel());
         }
+        public IActionResult Home()
+        {
+            return View();
+        }
     }
 }
