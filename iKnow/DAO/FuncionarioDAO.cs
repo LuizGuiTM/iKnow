@@ -7,6 +7,7 @@ namespace iKnow.DAO
 {
     public class FuncionarioDAO : PadraoDAO<FuncionarioViewModel>
     {
+        public static FuncionarioDAO getInstance() { return new FuncionarioDAO(); }
         protected override SqlParameter[] CriaParametros(FuncionarioViewModel model)
         {
             SqlParameter[] parametros =
@@ -35,13 +36,26 @@ namespace iKnow.DAO
                 Cargo = registro["Cargo"].ToString(),
                 Estado = registro["Estado"].ToString(),
                 Cidade = registro["Cidade"].ToString(),
+                Senha = registro["Senha"].ToString()    
             };
             return f;
         }
-
+        public FuncionarioViewModel Consulta(string CPF)
+        {
+            var p = new SqlParameter[]
+            {
+                new SqlParameter("Cpf", CPF),
+                new SqlParameter("tabela", Tabela)
+            };
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaCPF", p);
+            if (tabela.Rows.Count == 0)
+                return null;
+            else
+                return MontaModel(tabela.Rows[0]);
+        }
         protected override void SetTabela()
         {
-            Tabela = "Funcionario";
+            Tabela = "Funcionarios";
         }
     }
 }

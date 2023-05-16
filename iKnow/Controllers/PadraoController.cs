@@ -1,6 +1,8 @@
-﻿using iKnow.DAO;
+﻿using CadastroAlunoV1.Controllers;
+using iKnow.DAO;
 using iKnow.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 
 namespace iKnow.Controllers
@@ -11,6 +13,8 @@ namespace iKnow.Controllers
         protected bool GeraProximoId { get; set; }
         protected string NomeViewIndex { get; set; } = "index";
         protected string NomeViewForm { get; set; } = "form";
+        protected bool ExigeAutenticacao { get; set; } = true;
+
         public virtual IActionResult Index()
         {
             try
@@ -106,6 +110,16 @@ namespace iKnow.Controllers
             catch (Exception erro)
             {
                 return View("Error", new ErrorViewModel());
+            }
+        }
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            if (ExigeAutenticacao && !HelperControllers.VerificaUserLogado(HttpContext.Session))
+                context.Result = RedirectToAction("Index", "Login");
+            else
+            {
+                ViewBag.Logado = true;
+                base.OnActionExecuting(context);
             }
         }
     }
