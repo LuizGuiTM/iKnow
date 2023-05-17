@@ -1,5 +1,6 @@
 ﻿using iKnow.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace iKnow.Controllers
 {
@@ -13,6 +14,10 @@ namespace iKnow.Controllers
         public IActionResult Form()
         {
             return View(new ClienteViewModel());
+        }
+        public IActionResult Home()
+        {
+            return View();
         }
     }
 }

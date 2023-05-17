@@ -16,5 +16,7 @@ namespace iKnow.Models
         public string Cidade { get; set; }
 
         public string Estado { get; set; }
+        public string Senha { get; set; }
+
     }
 }

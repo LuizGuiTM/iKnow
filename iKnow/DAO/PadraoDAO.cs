@@ -103,7 +103,8 @@ namespace iKnow.DAO
         Salario decimal (10,2),
         Cargo varchar(max),
         Estado varchar(100),
-        Cidade varchar(100)
+        Cidade varchar(100),
+        Senha varchar(max)
         )
 
          
@@ -113,7 +114,8 @@ namespace iKnow.DAO
         Id INT IDENTITY(1,1) NOT NULL primary key,
         Nome varchar(max),
         Preco decimal(10, 2),
-        QuantidadeDisponivel int
+        QuantidadeDisponivel int,
+        Imagem varchar(max)
         )
 
          
@@ -389,7 +391,20 @@ namespace iKnow.DAO
              Cidade = @Cidade
              where Id = @Id
             end
-
+            
+            create procedure spConsultaCPF
+            (
+            @Cpf varchar(max) ,
+            @tabela varchar(max)
+            )
+            as
+            begin
+            declare @sql varchar(max);
+            set @sql = 'select * from ' + @tabela +
+            ' where Cpf = ' + @Cpf 
+            exec(@sql)
+            end
+            GO
          */
     }
 }
