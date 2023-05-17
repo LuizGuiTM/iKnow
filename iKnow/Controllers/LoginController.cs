@@ -19,7 +19,7 @@ namespace CadAlunoMVC.Controllers
         public IActionResult FazLogin(string usuario, string senha)
         {
              FuncionarioViewModel func = FuncionarioDAO.getInstance().Consulta(usuario); 
-            if (func.Senha == senha)
+            if (func != null && func.Senha == senha)
             {
                 HttpContext.Session.SetString("Logado", "true");
                 return RedirectToAction("index", "Home");

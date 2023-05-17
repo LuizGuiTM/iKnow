@@ -401,7 +401,7 @@ namespace iKnow.DAO
             begin
             declare @sql varchar(max);
             set @sql = 'select * from ' + @tabela +
-            ' where Cpf = ' + @Cpf 
+            ' where Cpf = ' + Char(39) + @Cpf  + Char(39)
             exec(@sql)
             end
             GO

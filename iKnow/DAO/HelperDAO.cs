@@ -69,7 +69,10 @@ namespace iKnow.DAO
                         adapter.SelectCommand.Parameters.AddRange(parametros);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     DataTable tabela = new DataTable();
-                    adapter.Fill(tabela);
+                    if (tabela != null)
+                    {
+                        adapter.Fill(tabela);
+                    }
                     return tabela;
                 }
             }
