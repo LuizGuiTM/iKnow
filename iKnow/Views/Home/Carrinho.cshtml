@@ -1,0 +1,25 @@
+﻿@model List<CarrinhoViewModel>
+<form>
+    <table class="table table-striped">
+        <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
+        <tr>
+            <th>Prévia</th>
+            <th>Nome</th>
+            <th>Gênero</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+        </tr> @foreach (var p in Model)
+        {
+            <tr>
+                <td>
+                    <img id="imgPreview" src="data:image/jpeg;base64,@p.ImagemEmBase64" class="img-responsive" width="100">
+                </td>
+                <td>@p.Nome</td>
+                <td>@p.Categoria</td>
+                <td>@p.Preco.ToString("0.00")</td>
+                <td>@p.QtdProduto</td>
+            </tr>
+        }
+    </table>
+    <input type="button" id="adicionaitem" value="Adicionar Item" onclick="enviaqrcode()" />
+</form>

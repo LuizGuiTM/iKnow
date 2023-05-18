@@ -39,5 +39,19 @@ namespace iKnow.DAO
         {
             Tabela = "Cliente";
         }
+
+        public ClienteViewModel Consulta(string CPF)
+        {
+            var p = new SqlParameter[]
+            {
+                new SqlParameter("Cpf", CPF),
+                new SqlParameter("tabela", Tabela)
+            };
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaCPF", p);
+            if (tabela.Rows.Count == 0)
+                return null;
+            else
+                return MontaModel(tabela.Rows[0]);
+        }
     }
 }

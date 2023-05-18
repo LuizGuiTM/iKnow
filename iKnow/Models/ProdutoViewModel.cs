@@ -1,5 +1,5 @@
+﻿using System;
 ﻿using Microsoft.AspNetCore.Http;
-using System;
 
 namespace iKnow.Models
 {
@@ -10,18 +10,13 @@ namespace iKnow.Models
         public double Preco { get; set; }
 
         public int QtdDisponivel { get; set; }
+                
+                    public string Categoria { get; set; }
 
-        /// <summary>
-        /// Imagem recebida do form pelo controller
-        /// </summary>
         public IFormFile Imagem { get; set; }
-        /// <summary>
-        /// Imagem em bytes pronta para ser salva
-        /// </summary>
-        public byte[] ImagemEmByte { get; set; }
-        /// <summary>
-        /// Imagem usada para ser enviada ao form no formato para ser exibida
-        /// </summary>
+
+        public byte[] ImagemEmByte { get; set; }    
+                
         public string ImagemEmBase64
         {
             get
@@ -32,6 +27,5 @@ namespace iKnow.Models
                     return string.Empty;
             }
         }
-
     }
 }
