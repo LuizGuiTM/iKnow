@@ -115,7 +115,7 @@ namespace iKnow.DAO
         Nome varchar(max),
         Preco decimal(10, 2),
         QuantidadeDisponivel int,
-        Imagem varchar(max)
+        Imagem varbinary(max)
         )
 
          
