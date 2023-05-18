@@ -1,0 +1,18 @@
+﻿@model TesteViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Teste</h2>
+<div class="row">
+    <div class="col-lg-3">
+        <form action="" method="post">
+            <label for="usuario" class="control-label">Usuário</label>
+            <input type="text" id="qrcode" name="model.QRcode" class="form-control" value="model.QRcode" />
+            <input type="button" value="Pegar QR Code" onclick="pegaqrcode()" />
+            <input type="submit" value="Login" class="btn btn-success" />
+            <br />
+            <span class="text-danger"> @ViewBag.Erro</span>
+        </form>
+    </div>
+</div>

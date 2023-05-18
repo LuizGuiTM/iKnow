@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Bem vindo à iKnow";
+}
+
+@model CompraViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h1 class="display-4">Olá, @ViewBag["Nome"]! Vamos fazer as suas compras.</h1>
+    <p>
+        Scanneie o QR Code do livro que deseja comprar para adicioná-lo à seu carrinho.
+        <br />Quando a luz ficar verde, clique abaixo para confirmar a adição do livro.
+    </p>
+    <input type="text" id="qrcode" name="qrcode" value="" />
+    <input type="hidden" id="IdCliente" name="IdCliente" value="IdCliente" />
+    <input type="button" value="Confirmar adição" onclick="pegaqrcode()" />
+    @if (ViewBag.Error != null)
+    {
+        <h3 style="color:red">@ViewBag.Error</h3>
+    }
+</div>

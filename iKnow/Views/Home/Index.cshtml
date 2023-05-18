@@ -1,8 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Bem vindo à iKnow";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Bem vindo à iKnow, a primeira livraria completamente automizada do Brasil!</h1>
+    <p>Apresente seu QR Code de cliente na máquina para obter acesso e realizar suas compras.
+    <br />Quando a luz ficar verde, clique abaixo para confirmar seu acesso.</p>
+    <input type="text" id="qrcode" name="qrcode" value="" />
+    <input type="button" value="Confirmar acesso" onclick="pegaqrcode()" />
+    @if (ViewBag.Error != null)
+    {
+        <h3 style="color:red">@ViewBag.Error</h3>
+    }
+    <p>Não possui cadastro? <a href="Cliente/Form">Clique aqui para cadastrar-se</a>.</p>
 </div>
