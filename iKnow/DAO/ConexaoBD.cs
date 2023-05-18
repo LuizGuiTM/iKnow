@@ -10,7 +10,8 @@ namespace iKnow.DAO
         /// <returns>Conexão aberta</returns>
         public static SqlConnection GetConexao()
         {
-            string strCon = "Data Source=LOCALHOST; Database=iKnow; user id=sa; password=123456";
+            //string strCon = "Data Source=LOCALHOST; Database=iKnow; user id=sa; password=123456";
+            string strCon = @"Data Source=DESKTOP-MMNHGJS\SQLEXPRESS;Initial Catalog=iKnow;integrated security=true";
             SqlConnection conexao = new SqlConnection(strCon);
             conexao.Open();
             return conexao;

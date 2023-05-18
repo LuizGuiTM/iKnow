@@ -1,6 +1,8 @@
-﻿function pegaqrcode() {
+﻿/*
+function pegaqrcode() {
     console.log("Entrei na função pegarqrcode")
     var api = "http://3.129.210.114:1026/v2/entities/";
+    var result
     $.ajax({
         type: 'GET',
         url: api,
@@ -11,11 +13,75 @@
         "fiware-servicepath": "/",
         },
         success: function (dados) {
-            document.getElementById("qrcode").value = dados[0].qrcode.value;
+            console.log(JSON.stringify(dados))
+            console.log(dados[0].qrcode.value)
+            result = dados;
+        }
+    })
+    return result;
+}
+
+function enviaqrcode() {
+    var qrcode = pegaqrcode()[0].qrcode.value;
+    if (qrcode != "") { }
+    var operacao = $("#operacao").val();
+    var api = "/Home/ValidaQRCode?qrcode=" + qrcode + "&Operacao=" + operacao;
+    $.ajax({
+        url: api,
+        success: function () {
+            console.log("Dados enviados para o método")
             apagaqrcode();
         }
     })
 }
+
+*/
+
+function pegaqrcode() {
+    console.log("Entrei na função pegarqrcode");
+    var api = "http://3.129.210.114:1026/v2/entities/";
+
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            type: 'GET',
+            url: api,
+            headers: {
+                "Accept": "application/json",
+                "fiware-service": "helixiot",
+                "fiware-servicepath": "/",
+            },
+            success: function (dados) {
+                console.log(JSON.stringify(dados));
+                console.log(dados[0].qrcode.value);
+                resolve(dados);
+            },
+            error: function (error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+async function enviaqrcode() {
+    try {
+        var result = await pegaqrcode();
+        var qrcode = result[0].qrcode.value;
+        if (qrcode !== "") {
+            var operacao = $("#operacao").val();
+            var api = "/Home/ValidaQRCode?qrcode=" + qrcode + "&Operacao=" + operacao;
+            $.ajax({
+                url: api,
+                success: function () {
+                    console.log("Dados enviados para o método");
+                    apagaqrcode();
+                }
+            });
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 
 function apagaqrcode() {
     console.log("Entrei na função apagarqrcode")
@@ -80,12 +146,24 @@ function alteraestado(estado) {
     })
 }
 
-function enviaqrcode(qrcode) {
-    if (qrcode != "") {
-        var operacao = (string)ViewBag.Erro;
-        url: "/Home/ValidaQRCode?qrcode=" + qrcode + "&Operacao=" + operacao;
-        success: function(dados) {
-            console.log("Dados enviados para o método")
+
+function rendercarrinho() {
+    var api = "/Home/CarrinhoView";
+    $.ajax({
+        url: api,
+            success: function(dados) {
+                console.log("Renderizando o Carrinho")
+                document.getElementById('listacarrinho').innerHTML = dados;
+            }
+    })
+}
+
+function cancelacompra() {
+    var api = "/Home/RemoveCarrinho";
+    $.ajax({
+        url: api,
+        success: function (dados) {
+            console.log("Carrinho apagado.");
         }
-    }
+    })
 }

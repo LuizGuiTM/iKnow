@@ -1,4 +1,6 @@
-﻿namespace iKnow.Models
+﻿using System;
+
+namespace iKnow.Models
 {
     public partial class ItemCompraViewModel : PadraoViewModel
     {

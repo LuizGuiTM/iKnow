@@ -6,17 +6,27 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<form action="Comprar"></form>
 <div class="text-center">
-    <h1 class="display-4">Olá, @ViewBag["Nome"]! Vamos fazer as suas compras.</h1>
+    <h1 class="display-4">Olá, @Model.Nome! Vamos fazer as suas compras.</h1>
     <p>
         Scanneie o QR Code do livro que deseja comprar para adicioná-lo à seu carrinho.
         <br />Quando a luz ficar verde, clique abaixo para confirmar a adição do livro.
     </p>
     <input type="text" id="qrcode" name="qrcode" value="" />
-    <input type="hidden" id="IdCliente" name="IdCliente" value="IdCliente" />
+    <input type="hidden" id="IdCliente" name="IdCliente" value="@Model.IdCliente" />
     <input type="button" value="Confirmar adição" onclick="pegaqrcode()" />
+    
     @if (ViewBag.Error != null)
     {
         <h3 style="color:red">@ViewBag.Error</h3>
     }
+    <div id="listacarrinho" class="table-responsive">
+    </div>
+    <script>
+        $(document).ready(rendercarrinho());
+    </script>
+    <input type="button" id="cancelar" value="Cancelar a Compra" onclick="cancelacompra()" />
+    <input type="submit" value="Confirmar compra" />
 </div>
+
