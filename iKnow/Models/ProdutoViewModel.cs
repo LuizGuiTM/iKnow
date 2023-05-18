@@ -1,4 +1,5 @@
 ﻿using System;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace iKnow.Models
 {
@@ -9,13 +10,13 @@ namespace iKnow.Models
         public double Preco { get; set; }
 
         public int QtdDisponivel { get; set; }
-
-        public string Categoria { get; set; }
+                
+                    public string Categoria { get; set; }
 
         public IFormFile Imagem { get; set; }
 
-        public byte[] ImagemEmByte { get; set; }
-        /// <summary> /// Imagem usada para ser enviada ao form no formato para ser exibida /// </summary> 
+        public byte[] ImagemEmByte { get; set; }    
+                
         public string ImagemEmBase64
         {
             get

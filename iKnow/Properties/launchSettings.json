@@ -19,7 +19,7 @@
     "iKnow": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000;https://localhost:44328",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000;;http://localhost:44328",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation"

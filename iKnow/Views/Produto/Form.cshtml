@@ -1,0 +1,39 @@
+﻿@model ProdutoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Cadastro de Jogo</h2>
+<form action="Save" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="Operacao" value="@ViewBag.Operacao"
+    <label for="Id" class="control-label">Código</label>
+    <input type="number" Name="Id" value="@Model.Id" class="form-control" />
+    <br />
+    <label for="Descricao" class="control-label">Nome do jogo</label>
+    <input type="text" Name="Nome" value="@Model.Nome" class="form-control" />
+    <br />
+    <label for="Valor" class="control-label">Valor</label>
+    <input type="text" Name="Preco" value="@Model.Preco" class="form-control" />
+    <br />
+    <label for="CategoriaID" class="control-label">Código da categoria</label>
+    <input type="number" Name="QtdDisponivel" value="@Model.QtdDisponivel" class="form-control" />
+    <br />
+    <input type="file" name="Imagem" id="Imagem" onchange="exibirImagem()" class="btn btn-secondary">
+    <img id="imgPreview" src="data:image/jpeg;base64,@Model.ImagemEmBase64" class="img-responsive"
+         width="100">
+    <span asp-validation-for="Imagem" class="text-danger"></span>
+
+    <br />
+    <input type="submit" value="Salvar dados" class="btn btn-success" />
+    <br />
+
+</form>
+
+<script>
+    function exibirImagem() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("imgPreview").src = oFREvent.target.result;
+        };
+    }
+</script>

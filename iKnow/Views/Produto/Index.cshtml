@@ -1,0 +1,32 @@
+﻿@model List<ProdutoViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de Jogos</h2>
+
+<a href="/produto/create">Cadastrar novo produto</a>
+<br />
+
+<table class="table table-responsive">
+    <tr>
+        <th>Ações</th>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Quantidade Disponivel</th>
+    </tr>
+    @foreach (var produto in Model)
+    {
+        <tr>
+            <td>
+                <a href="/produto/Edit?id=@produto.Id" class="btn btn-info">Alterar</a>
+                <a href="javascript:deleteGame(@produto.Id)" class="btn btn-danger">Apagar</a>
+            </td>
+            <td>@produto.Id</td>
+            <td>@produto.Nome</td>
+            <td>@produto.Preco.ToString("0.00")</td>
+            <td>@produto.QtdDisponivel</td>
+        </tr>
+    }
+</table>
