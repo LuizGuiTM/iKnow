@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Data;
 
 namespace iKnow.Models
@@ -36,4 +37,4 @@ namespace iKnow.Models
         }
     }
 }
-}
+

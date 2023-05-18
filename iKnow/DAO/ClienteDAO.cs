@@ -37,7 +37,7 @@ namespace iKnow.DAO
 
         protected override void SetTabela()
         {
-            Tabela = "Cliente";
+            Tabela = "Clientes";
         }
 
         public ClienteViewModel Consulta(string CPF)

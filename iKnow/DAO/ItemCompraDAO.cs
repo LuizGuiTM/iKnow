@@ -34,7 +34,7 @@ namespace iKnow.DAO
 
         protected override void SetTabela()
         {
-            Tabela = "ItemCompra";
+            Tabela = "ItensCompra";
         }
     }
 }

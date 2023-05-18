@@ -20,8 +20,8 @@ namespace iKnow.DAO
                  new SqlParameter("Nome", model.Nome),
                  new SqlParameter("Preco", model.Preco),
                  new SqlParameter("QuantidadeDisponivel", model.QtdDisponivel),
-                 new SqlParameter("Imagem", imgByte)
-
+                 new SqlParameter("Imagem", imgByte),
+                 new SqlParameter("Categoria", model.Categoria)
 
              };
             return parametros;
@@ -35,6 +35,7 @@ namespace iKnow.DAO
                 Nome = registro["Nome"].ToString(),
                 Preco = Convert.ToDouble(registro["Preco"]),
                 QtdDisponivel = Convert.ToInt32(registro["QuantidadeDisponivel"]),
+                Categoria = registro["Categoria"].ToString()
             };
             if (registro["imagem"] != DBNull.Value)
                 p.ImagemEmByte = registro["Imagem"] as byte[];
