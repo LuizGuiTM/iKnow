@@ -13,10 +13,10 @@ namespace iKnow.DAO
             object imgByte = model.ImagemEmByte;
              if (imgByte == null)
              imgByte = DBNull.Value;
-        
+
             SqlParameter[] parametros =
              {
-                 
+                 new SqlParameter("Id", model.Id),
                  new SqlParameter("Nome", model.Nome),
                  new SqlParameter("Preco", model.Preco),
                  new SqlParameter("QuantidadeDisponivel", model.QtdDisponivel),
