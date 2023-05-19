@@ -24,7 +24,7 @@ namespace iKnow.Controllers
             }
             catch (Exception erro)
             {
-                return View("Error", new ErrorViewModel());
+                return View("Error", new ErrorViewModel(erro.Message));
             }
         }
         public virtual IActionResult Create()
@@ -38,7 +38,7 @@ namespace iKnow.Controllers
             }
             catch (Exception erro)
             {
-                return View("Error", new ErrorViewModel());
+                return View("Error", new ErrorViewModel(erro.Message));
             }
         }
         protected virtual void PreencheDadosParaView(string Operacao, T model)
@@ -68,7 +68,7 @@ namespace iKnow.Controllers
             }
             catch (Exception erro)
             {
-                return View("Error", new ErrorViewModel());
+                return View("Error", new ErrorViewModel(erro.Message));
             }
         }
         protected virtual void ValidaDados(T model, string operacao)
@@ -97,7 +97,7 @@ namespace iKnow.Controllers
             }
             catch (Exception erro)
             {
-                return View("Error", new ErrorViewModel());
+                return View("Error", new ErrorViewModel(erro.Message));
             }
         }
         public IActionResult Delete(int id)
@@ -109,7 +109,7 @@ namespace iKnow.Controllers
             }
             catch (Exception erro)
             {
-                return View("Error", new ErrorViewModel());
+                return View("Error", new ErrorViewModel(erro.Message));
             }
         }
         public override void OnActionExecuting(ActionExecutingContext context)
