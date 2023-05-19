@@ -1,4 +1,6 @@
-﻿namespace iKnow.Models
+﻿using System;
+
+namespace iKnow.Models
 {
     public class CarrinhoViewModel
     {
@@ -8,7 +10,18 @@
 
         public double Preco { get; set; }
 
-        public string ImagemEmBase64 { get; set; }
+        public byte[] ImagemEmByte { get; set; }
+
+        public string ImagemEmBase64
+        {
+            get
+            {
+                if (ImagemEmByte != null)
+                    return Convert.ToBase64String(ImagemEmByte);
+                else
+                    return string.Empty;
+            }
+        }
 
         public string Nome { get; set; }
 

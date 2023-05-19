@@ -12,6 +12,7 @@
         {
             <tr>
                 <td>
+                    <img src="data:image/jpeg;base64,@p.ImagemEmBase64" style="width: 100px; height: auto; object-fit:contain">
                 </td>
                 <td>@p.Nome</td>
                 <td>@p.Categoria</td>
@@ -20,6 +21,9 @@
             </tr>
         }
     </table>
-    <input type="button" id="adicionaitem" value="Adicionar Item" onclick="enviaqrcode()" />
 </form>
 
+@if (ViewBag.Erro != null)
+{
+    <p style="color:red">@ViewBag.Erro</p>
+}

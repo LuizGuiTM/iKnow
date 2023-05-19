@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Bem vindo à iKnow";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <p>
+        Apresente seu QR Code de cliente na máquina para obter acesso e realizar suas compras.
+        <br />Quando a luz ficar verde, clique abaixo para confirmar seu acesso.
+    </p>
+    <input type="text" id="qrcode" name="qrcode" value="" />
+    @if (ViewBag.Erro != null)
+    {
+        <p style="color:red">@ViewBag.Erro</p>
+    }
+    <p>Não possui cadastro? <a href="Cliente/Create">Clique aqui para cadastrar-se</a>.</p>
+    <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
+    <a href="Loja/Compras">Compras</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Executar enviaqrcode assim que a view for carregada
+    $(document).ready(function () {
+        apagaqrcode();
+        setTimeout(function () {
+            enviaqrcode("usuario", "");
+        }, 100);
+    });
+</script>
