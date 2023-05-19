@@ -36,7 +36,10 @@ function enviaqrcode() {
 }
 
 */
-
+function deleteProduto(id) {
+    if (confirm('Deseja confirma a exclusão?'))
+        location.href = '/produto/delete?id=' + id;
+}
 function pegaqrcode() {
     console.log("Entrei na função pegarqrcode");
     var api = "http://3.129.210.114:1026/v2/entities/";

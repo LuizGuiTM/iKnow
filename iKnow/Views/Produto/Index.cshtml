@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Listagem de Jogos</h2>
+<h2>Listagem de Produtos</h2>
 
 <a href="/produto/create">Cadastrar novo produto</a>
 <br />
@@ -21,7 +21,7 @@
         <tr>
             <td>
                 <a href="/produto/Edit?id=@produto.Id" class="btn btn-info">Alterar</a>
-                <a href="javascript:deleteGame(@produto.Id)" class="btn btn-danger">Apagar</a>
+                <a href="javascript:deleteProduto(@produto.Id)" class="btn btn-danger">Apagar</a>
             </td>
             <td>@produto.Id</td>
             <td>@produto.Nome</td>
