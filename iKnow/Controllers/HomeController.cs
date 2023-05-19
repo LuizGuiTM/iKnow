@@ -60,8 +60,9 @@ namespace iKnow.Controllers
             {
                 if (qrcode[0] == 'U' && Operacao == "login")
                 {
+                    string qr = qrcode.Substring(1, qrcode.Length - 1);
                     ClienteDAO clienteDAO = new ClienteDAO();
-                    ClienteViewModel c = clienteDAO.Consulta(qrcode);
+                    ClienteViewModel c = clienteDAO.Consulta(qr);
                     if (c == null)
                     {
                         ViewBag.Erro = "Usuário não encontrado.";

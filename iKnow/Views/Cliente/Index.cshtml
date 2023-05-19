@@ -1,0 +1,32 @@
+﻿@model List<ClienteViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de Clientes</h2>
+
+<a href="/cliente/create">Cadastrar novo cliente</a>
+<br />
+
+<table class="table table-responsive">
+    <tr>
+        <th>Ações</th>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Cpf</th>
+        <th>Desconto</th>
+    </tr>
+    @foreach (var cliente in Model)
+    {
+        <tr>
+            <td>
+                <a href="/produto/Edit?id=@cliente.Id" class="btn btn-info">Alterar</a>
+                <a href="javascript:deleteGame(@cliente.Id)" class="btn btn-danger">Apagar</a>
+            </td>
+            <td>@cliente.Id</td>
+            <td>@cliente.Nome</td>
+            <td>@cliente.Cpf</td>
+            <td>@cliente.Desconto.ToString("0.00")</td>
+        </tr>
+    }
+</table>
