@@ -21,16 +21,16 @@ namespace iKnow.Models
 
         public double Credito { get; set; }
 
-        public IFormFile Documento { get; set; }
+        public IFormFile Imagem { get; set; }
 
-        public byte[] DocumentoEmByte { get; set; }
-        /// <summary> /// Imagem usada para ser enviada ao form no formato para ser exibida /// </summary> 
-        public string DocumentoEmBase64
+        public byte[] ImagemEmByte { get; set; }
+
+        public string ImagemEmBase64
         {
             get
             {
-                if (DocumentoEmByte != null)
-                    return Convert.ToBase64String(DocumentoEmByte);
+                if (ImagemEmByte != null)
+                    return Convert.ToBase64String(ImagemEmByte);
                 else
                     return string.Empty;
             }

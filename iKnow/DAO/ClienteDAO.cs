@@ -9,6 +9,8 @@ namespace iKnow.DAO
     {
         protected override SqlParameter[] CriaParametros(ClienteViewModel model)
         {
+            object imgByte = model.ImagemEmByte; 
+            if (imgByte == null) imgByte = DBNull.Value;
             SqlParameter[] parametros =
              {
                  new SqlParameter("Id", model.Id),
@@ -16,7 +18,10 @@ namespace iKnow.DAO
                  new SqlParameter("CPF", model.Cpf),
                  new SqlParameter("DataNascimento", model.DataNasc),
                  new SqlParameter("Estado", model.Estado),
-                 new SqlParameter("Cidade", model.Cidade)
+                 new SqlParameter("Cidade", model.Cidade),
+                 new SqlParameter("Desconto", model.Desconto),
+                 new SqlParameter("Credito", model.Credito),
+                 new SqlParameter("Documento", imgByte)
              };
             return parametros;
         }
@@ -31,7 +36,11 @@ namespace iKnow.DAO
                 DataNasc = Convert.ToDateTime(registro["DataNascimento"]),
                 Estado = registro["Estado"].ToString(),
                 Cidade = registro["Cidade"].ToString(),
+                Desconto = Convert.ToDouble(registro["Desconto"].ToString()),
+                Credito = Convert.ToDouble(registro["Credito"].ToString()),
             };
+            if (registro["Documento"] != DBNull.Value)
+                c.ImagemEmByte = registro["Documento"] as byte[];
             return c;
         }
 
