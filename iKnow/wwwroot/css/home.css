@@ -1,3 +1,9 @@
-﻿.container {
-    background: url("/img/backgound.jpg");
+﻿
+.textured {
+    background-image: url('../img/blue-watercolor-texture-background.jpg');
+    background-repeat: repeat;
 }
+.white {
+    background-color: #ffffff;
+}
+
