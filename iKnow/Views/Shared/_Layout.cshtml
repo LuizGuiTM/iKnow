@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - iKnow</title>
@@ -8,19 +9,18 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <header class="d-flex flex-wrap align-items-center justify-content-md-between py-3 mb-4 border-bottom white">
         <a asp-area ="" asp-controller="Home" asp-action="Index" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
             <img src="~/img/iknowfull.png" width="100px" height="52px" />
         </a>
         @if (ViewBag.Logado == true)
         {
-            <div style="text-align:center">
+            
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Home</a></li>
                     <li><a asp-area="" asp-controller="Cliente" asp-action="Form"  class="nav-link px-2 link-dark">Clientes</a></li>
                     <li><a asp-area="" asp-controller="Produto" asp-action="Index"  class="nav-link px-2 link-dark">Produtos</a></li>
                 </ul>
-            </div>
         }
         else
         {
@@ -35,9 +35,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - iKnow - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="white" style="position: absolute;bottom: 0; width: 100%;">
+        <div style="color: #777;margin: 15px;padding: 15px 0;">
+            <img src="~/img/iknowfull.png" width="100px" height="52px" />
+            &copy; Copyright iKnow
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
