@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Carrinho.cshtml" />
+    <Content Remove="Views\Home\Compra.cshtml" />
+    <Content Remove="Views\Home\Compras.cshtml" />
+    <Content Remove="Views\Home\Parabens.cshtml" />
+    <Content Remove="Views\Home\Privacy.cshtml" />
     <Content Remove="Views\Produto\Consulta.cshtml" />
   </ItemGroup>
 
