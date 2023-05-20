@@ -3,6 +3,12 @@
     background-image: url('../img/blue-watercolor-texture-background.jpg');
     background-repeat: repeat;
 }
+
+.white {
+    background-color: #ffffff;
+}
+
+fieldset {
 .texturedHome {
     background-repeat: repeat;
     background-image: url('../img/673f5cf444b0b29e9aab9cbf433c9a9e.jpg');
@@ -33,18 +39,22 @@
 .divCustom {
     border-radius: 15px;
 }
+
 .table-scroll {
     max-height: 20vh; /* Defina a altura máxima desejada */
     overflow: auto; /* Habilita a barra de rolagem quando o conteúdo exceder a altura máxima */
 }
+
 legend {
     padding: 2px 4px;
 }
+
 .h2Consulta {
     color: #333;
     font-size: 24px;
     margin-bottom: 20px;
 }
+
 .rounded-div {
     border: 1px solid #666;
     border-radius: 20px;
@@ -104,6 +114,20 @@ legend {
     border-radius: 4px;
 }
 
+.navbar-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header {
+    display: flex;
+    justify-content: center; /* center everything */
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 260px; /* prevent crawling on the logo */
+}
+  
 body {
     min-height: 100vh;
     display: flex;
@@ -122,5 +146,21 @@ body {
 }
 
 
+.logo {
+    position: absolute; /* remove the logo from the flow */
+    left: 20px; /* move the logo to left */
+    height: 54px;
+    width: 100px;
+}
 
+#nav-bar > ul {
+    display: flex; /* make a horizontal menu */
+    gap: 20px; /* gap between menu items */
+    list-style: none;
+    padding-left: 0px;
+}
 
+.img, #nav-bar > ul > li {
+        border: 1px solid gray;
+        padding: 5px;
+}
