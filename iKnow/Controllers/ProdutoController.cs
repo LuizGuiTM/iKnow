@@ -55,17 +55,6 @@ namespace iKnow.Controllers
             }
 
         }
-        public IActionResult ExibeConsultaAvancada()
-        {
-            try
-            {
-                return View("Consulta");
-            }
-            catch (Exception erro)
-            {
-                return View("Error", new ErrorViewModel(erro.Message));
-            }
-        }
         public IActionResult ObtemDadosConsultaAvancada(string nome,
                                                          string categoria,
                                                          double precoInicial,

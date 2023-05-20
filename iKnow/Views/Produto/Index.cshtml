@@ -1,36 +1,53 @@
-﻿@model List<ProdutoViewModel>
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h2>Listagem de Produtos</h2>
-
-<a href="/produto/create">Cadastrar novo produto</a>
-<br />
-
-<table class="table table-responsive">
-    <tr>
-        <th>Ações</th>
-        <th>Código</th>
-        <th>Nome</th>
-        <th>Preço</th>
-        <th>Quantidade Disponivel</th>
-    </tr>
-    @foreach (var produto in Model)
-    {
-        <tr>
-            <td>
-                <a href="/produto/Edit?id=@produto.Id" class="btn btn-info">Alterar</a>
-                <a href="javascript:deleteProduto(@produto.Id)" class="btn btn-danger">Apagar</a>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Produto" asp-action="ExibeConsultaAvancada">
-                 Consulta
-                 Avançada de Produtos
-                </a>
-            </td>
-            <td>@produto.Id</td>
-            <td>@produto.Nome</td>
-            <td>@produto.Preco.ToString("0.00")</td>
-            <td>@produto.QtdDisponivel</td>
-        </tr>
+﻿@using iKnow.Controllers;
+@model List<ProdutoViewModel>
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
     }
-</table>
+<header>
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css" />
+</header>
+<body class="textured">
+    <h2 class="h2Conulta">Listagem de Produtos</h2>
+
+    <a type="button" class="btn btn-success" href="/produto/create">Novo produto</a>
+    <br />
+    <div class="white">
+
+    <fieldset id="areaFiltro" class="form-group">
+        <legend>Consulta de Produtos</legend>
+        <div class="row">
+            <div class="col-lg-4">
+                Nome<br />
+                <input type="text" id="nome" class="form-control" />
+            </div>
+            <div class="col-lg-4">
+                Categoria<br />
+                <input type="text" id="categoria" class="form-control" />
+            </div>
+            <div class="col-lg-4">
+                Preço inicial<br />
+                <input type="number" id="precoInicial" step="0.01" class="form-control" />
+            </div>
+            <div class="col-lg-4">
+                Preço inicial<br />
+                <input type="number" id="precoFinal" step="0.01" class="form-control" />
+            </div>
+            <div class="col-lg-1">
+                <br />
+                <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                       onclick="aplicaFiltroConsultaAvancada()" />
+            </div>
+        </div>
+    </fieldset>
+    </div>
+    <div id="resultadoConsulta" class="table-responsive white">
+    </div>
+    
+</body>
+    
+<script>
+    window.addEventListener('load', function () {
+        // Faz uma chamada assíncrona para o método da controller
+        aplicaFiltroConsultaAvancada();
+    });
+</script>
