@@ -1,0 +1,30 @@
+﻿@model List<ClienteViewModel>
+
+<div class="table-scroll">
+    <table class="table table-striped">
+        <tr>
+            <th>Ações</th>
+            <th>Código</th>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Credito</th>
+            <th>Desconto</th>
+        </tr>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/produto/Edit?id=@cliente.Id" class="btn btn-info">Alterar</a>
+                    <a href="javascript:deleteProduto(@cliente.Id)" class="btn btn-danger">X</a>
+                </td>
+                <td>@cliente.Id</td>
+                <td>@cliente.Cpf</td>
+                <td>@cliente.Nome</td>
+                <td>@cliente.DataNasc</td>
+                <td>@cliente.Credito</td>
+                <td>@cliente.Desconto.ToString("0.00")</td>
+            </tr>
+        }
+    </table>
+</div>

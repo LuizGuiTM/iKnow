@@ -1,7 +1,4 @@
-﻿.textured {
-    background-image: url('../img/blue-watercolor-texture-background.jpg');
-    background-repeat: repeat;
-}
+﻿
 
 .white {
     background-color: #ffffff;
@@ -30,48 +27,11 @@
 .white {
     background-color: #ffffff;
 }
-
-.fieldsetCustom {
-    margin: 20px;
-    padding: 50px;
-    border-radius: 15px;
-    padding-top: 10px;
-}
-
-.divCustom {
-    border-radius: 15px;
-}
-
-.table-scroll {
-    max-height: 20vh; /* Defina a altura máxima desejada */
-    overflow: auto; /* Habilita a barra de rolagem quando o conteúdo exceder a altura máxima */
-}
-
-legend {
-    padding: 2px 4px;
-}
-
-.h2Consulta {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
 .rounded-div {
     border: 1px solid #666;
     border-radius: 20px;
 }
 
-.btn-successConsulta {
-    background-color: #28a745;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 10px;
-    transition: none;
-}
 
 #areaFiltro {
     border: 1px solid #ccc;
@@ -96,18 +56,6 @@ legend {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.col-lg-4 {
-    width: 33.33%;
-    float: left;
-    padding-right: 10px;
-}
-
-.col-lg-1 {
-    width: 8.33%;
-    float: left;
-    padding-right: 10px;
 }
 
 #resultadoConsulta {

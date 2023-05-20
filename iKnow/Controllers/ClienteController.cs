@@ -68,6 +68,41 @@ namespace iKnow.Controllers
             base.PreencheDadosParaView(Operacao, model);
             model.DataNasc = DateTime.Now;
         }
+        public IActionResult ObtemDadosConsultaAvancada(string nome,
+                                                             string cpf,
+                                                             double descontoInicial,
+                                                             double descontoFinal
+                                                            )
+        {
+            try
+            {
+                ClienteDAO dao = new ClienteDAO();
+                if (string.IsNullOrEmpty(nome))
+                    nome = "";
+                if (string.IsNullOrEmpty(cpf))
+                    cpf = "";
+                if (descontoFinal == 0)
+                    descontoFinal = 10000000000000;
+                var lista = dao.ConsultaAvancadaJogos(nome, cpf, descontoInicial, descontoFinal);
+                return PartialView("pvGridCliente", lista);
+            }
+            catch (Exception erro)
+            {
+                return Json(new { erro = true, msg = erro.Message });
+            }
+        }
+        public override IActionResult Index()
+        {
+            try
+            {
+                return View(NomeViewIndex);
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.Message));
+            }
+        }
+
     }
 
 }

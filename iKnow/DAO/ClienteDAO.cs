@@ -1,5 +1,6 @@
 ﻿using iKnow.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -61,6 +62,23 @@ namespace iKnow.DAO
                 return null;
             else
                 return MontaModel(tabela.Rows[0]);
+        }
+        public List<ClienteViewModel> ConsultaAvancadaJogos(string nome,
+                                                         string cpf,
+                                                         double descontoInicial,
+                                                         double descontoFinal)
+        {
+            SqlParameter[] p = {
+             new SqlParameter("nome", nome),
+             new SqlParameter("cpf", cpf),
+             new SqlParameter("descontoInicial", descontoInicial),
+             new SqlParameter("descontoFinal", descontoFinal),
+            };
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaAvancadaClientes", p);
+            var lista = new List<ClienteViewModel>();
+            foreach (DataRow dr in tabela.Rows)
+                lista.Add(MontaModel(dr));
+            return lista;
         }
     }
 }
