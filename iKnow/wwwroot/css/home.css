@@ -9,11 +9,35 @@
 }
 
 fieldset {
+.texturedHome {
+    background-repeat: repeat;
+    background-image: url('../img/673f5cf444b0b29e9aab9cbf433c9a9e.jpg');
+}
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+}
+.subtitulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.white {
+    background-color: #ffffff;
+}
+.fieldsetCustom {
     margin: 20px;
     padding: 50px;
-    border: 1px solid #666;
-    border-radius: 8px;
+    border-radius: 15px;
     padding-top: 10px;
+
+}
+.divCustom {
+    border-radius: 15px;
 }
 
 .table-scroll {
@@ -103,6 +127,24 @@ legend {
     margin-top: 20px;
     padding: 0 260px; /* prevent crawling on the logo */
 }
+  
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.footer-content {
+    color: #777;
+    margin: 15px;
+    padding: 15px 0;
+    text-align: center;
+}
+
 
 .logo {
     position: absolute; /* remove the logo from the flow */
