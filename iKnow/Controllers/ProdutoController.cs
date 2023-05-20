@@ -17,6 +17,17 @@ namespace iKnow.Controllers
             DAO = new ProdutoDAO();
             GeraProximoId = true;
         }
+        public override IActionResult Index()
+        {
+            try
+            {
+                return View(NomeViewIndex);
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.Message));
+            }
+        }
         public byte[] ConvertImageToByte(IFormFile file)
         {
             if (file != null)

@@ -1,0 +1,46 @@
+﻿.textured {
+    background-color: #00abbe;
+    background-repeat: repeat;
+}
+.white {
+    background-color: #ffffff;
+}
+.divCustom {
+    border-radius: 15px;
+}
+.fieldsetCustom {
+    margin: 20px;
+    padding: 50px;
+    border-radius: 15px;
+    padding-top: 10px;
+}
+.table-scroll {
+    max-height: 20vh; /* Defina a altura máxima desejada */
+    overflow: auto; /* Habilita a barra de rolagem quando o conteúdo exceder a altura máxima */
+}
+legend {
+    padding: 2px 4px;
+}
+.h2Consulta {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.col-lg-4 {
+    width: 33.33%;
+    float: left;
+    padding-right: 10px;
+}
+
+.col-lg-1 {
+    width: 8.33%;
+    float: left;
+    padding-right: 10px;
+}
