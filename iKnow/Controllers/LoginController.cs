@@ -32,7 +32,7 @@ namespace CadAlunoMVC.Controllers
         }
         public IActionResult LogOff()
         {
-            HttpContext.Session.Clear();
+            HttpContext.Session.Remove("Logado");
             return RedirectToAction("Index");
         }
     }

@@ -14,7 +14,6 @@ namespace iKnow.Controllers
     {
         public ProdutoController()
         {
-            ExigeAutenticacao = false;
             DAO = new ProdutoDAO();
             GeraProximoId = true;
         }

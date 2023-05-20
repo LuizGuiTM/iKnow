@@ -103,6 +103,36 @@ function enviaqrcode(opera) {
     }
 }
 
+/*
+function enviaqrcode(opera) {
+    if (executando) {
+        return;
+    }
+    try {
+        executando = true;
+        var result;
+        var qrcode = "";
+        //console.log(opera);
+        function loop() {
+            qrcode = pegaqrcode();
+            if (qrcode === "")
+                console.log("vazio");
+            else
+                console.log(qrcode);
+            //qrcode = result[0].qrcode.value;
+            if (qrcode === "") {
+                setTimeout(loop, 2000); // Espera 2 segundos antes de chamar o loop novamente
+            } else {
+                return;
+            }
+        }
+        loop(); // Chama o loop pela primeira vez
+    } catch (error) {
+        executando = false;
+        console.error(error);
+    }
+}
+*/
 function apagaqrcode() {
     //console.log("Entrei na função apagarqrcode")
     var api = "http://3.129.210.114:1026/v2/entities/urn:ngsi-ld:entity:esp_iknow/attrs";
