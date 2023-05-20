@@ -172,8 +172,6 @@ function pegaqrcode() {
     });
 }
 
-*/
-
 var enviaqrcodeExecutando = false; // Variável de controle
 
 function enviaqrcodecheck(tipo) {
@@ -305,6 +303,243 @@ function pegaqrcode() {
             }
         });
     });
+}
+
+async function enviaqrcode(opera) {
+    if (executando) {
+        return;
+    }
+
+    try {
+        executando = true;
+        var result;
+        var qrcode = "";
+        //console.log(opera);
+        while (qrcode === "") {
+            result = await pegaqrcode();
+            qrcode = result[0].qrcode.value;
+            if (qrcode === "") {
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Espera 2 segundos antes de fazer a próxima requisição
+            }
+        }
+        apagaqrcode();
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        var operacao = $("#operacao").val();
+        var api = "/Loja/ValidaQRCode?qrcode=" + qrcode + "&Operacao=" + operacao;
+        $.ajax({
+            url: api,
+            success: async function (response) {
+                if (opera === "usuario") {
+                    var url = response.url;
+                    //console.log("Dados enviados para o método usuario");
+                    if (response.compraViewModel) {
+                        var compraViewModelJson = encodeURIComponent(JSON.stringify(response.compraViewModel));
+                        window.location.href = url + "?compraViewModel=" + compraViewModelJson;
+                    } else if (response.mensagem) {
+                        var mensagem = response.mensagem;
+                        window.location.href = url + "?mensagem=" + encodeURIComponent(mensagem);
+                    } else {
+                        window.location.href = url;
+                    }
+                } else {
+                    console.log("Entrou aqui");
+                    $("#listacarrinho").html(response);
+                }
+                //console.log("Dados enviados para o método");
+                apagaqrcode();
+                //console.log("false");
+                executando = false; // Set executando to false here
+                if (opera !== "usuario") {
+                    //console.log("enviaqrcode")
+                    //enviaqrcode(opera); // Call enviaqrcode() after setting executando to false
+                }
+            }
+        });
+    } catch (error) {
+        executando = false;
+        console.error(error);
+    }
+}
+
+function pegaqrcodeasync() {
+    //console.log("Entrei na função pegarqrcode");
+    var api = "http://3.129.210.114:1026/v2/entities/";
+
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            type: 'GET',
+            url: api,
+            headers: {
+                "Accept": "application/json",
+                "fiware-service": "helixiot",
+                "fiware-servicepath": "/",
+            },
+            success: function (dados) {
+                //console.log(JSON.stringify(dados));
+                var result = dados[0].qrcode.value;
+                if(result != null)
+                console.log(result);
+                resolve(dados);
+            },
+            error: function (error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+*/
+
+var executando = false;
+
+
+/*
+function pegaqrcode() {
+    var helix = "http://3.129.210.114";
+    var api = helix + ":1026/v2/entities/";
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', api, false); // false indica que a chamada é síncrona
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("fiware-service", "helixiot");
+    xhr.setRequestHeader("fiware-servicepath", "/");
+
+    xhr.send();
+
+    if (xhr.status === 200) {
+        var dados = JSON.parse(xhr.responseText);
+        var result = dados[0].qrcode.value;
+        if (result != null) {
+            console.log(result);
+        }
+        return dados;
+    } else {
+        throw new Error('Erro na requisição: ' + xhr.status);
+    }
+}
+
+*/
+
+function makeSyncGetRequest(url, headers) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, false); // Configurando a solicitação para ser síncrona
+    //xhr.setRequestHeader("Content-Type", "application/json");
+
+    // Definindo os cabeçalhos personalizados
+    if (headers) {
+        for (var header in headers) {
+            xhr.setRequestHeader(header, headers[header]);
+        }
+    }
+
+    xhr.send();
+    if (xhr.status === 200) {
+        //console.log("Resposta:", xhr.responseText);
+        return JSON.parse(xhr.responseText); // Convertendo a resposta em JSON
+    } else {
+        throw new Error("Erro na solicitação: " + xhr.status);
+    }
+}
+
+// Uso do método makeSyncGetRequest
+var helix = "http://3.129.210.114";
+var link = helix + ":1026/v2/entities/";
+
+var headershelix = {
+    Accept: "application/json",
+    "fiware-service": "helixiot",
+    "fiware-servicepath": "/"
+};
+
+
+function pegaqrcode() {
+    try {
+        var response = makeSyncGetRequest(link, headershelix)[0].qrcode.value;
+        return response;
+        //console.log(response);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function enviaqrcode(opera) {
+    if (executando) {
+        return;
+    }
+    try {
+        executando = true;
+        var result;
+        var qrcode = "";
+        //console.log(opera);
+        function loop() {
+            qrcode = pegaqrcode();
+            if (qrcode === "")
+                console.log("vazio");
+            else
+                console.log(qrcode);
+            //qrcode = result[0].qrcode.value;
+            if (qrcode === "") {
+                setTimeout(loop, 2000); // Espera 2 segundos antes de chamar o loop novamente
+            } else {
+                apagaqrcode();
+                var operacao = $("#operacao").val();
+                var api = "/Loja/ValidaQRCode?qrcode=" + qrcode + "&Operacao=" + operacao;
+                $.ajax({
+                    url: api,
+                    success: function (response) {
+                        if (opera === "usuario") {
+                            var url = response.url;
+                            //console.log("Dados enviados para o método usuario");
+                            if (response.compraViewModel) {
+                                console.log("Entrou NO COMPRA");
+                                var compraViewModelJson = encodeURIComponent(JSON.stringify(response.compraViewModel));
+                                window.location.href = url + "?compraViewModel=" + compraViewModelJson;
+                            } else if (response.mensagem) {
+                                var mensagem = response.mensagem;
+                                window.location.href = url + "?mensagem=" + encodeURIComponent(mensagem);
+                            } else {
+                                window.location.href = url;
+                            }
+                        } else {
+                            console.log("Entrou aqui");
+                            $("#listacarrinho").html(response);
+                        }
+                        //console.log("Dados enviados para o método");
+                        //console.log("false");
+                        executando = false; // Define executando como false aqui
+                        if (opera !== "usuario") {
+                            //console.log("enviaqrcode")
+                            enviaqrcode(opera); // Chama enviaqrcode() novamente após definir executando como false
+                        }
+                    }
+                });
+            }
+        }
+        loop(); // Chama o loop pela primeira vez
+    } catch (error) {
+        executando = false;
+        console.error(error);
+    }
+}
+
+function apagaqrcode() {
+    //console.log("Entrei na função apagarqrcode")
+    var api = "http://3.129.210.114:1026/v2/entities/urn:ngsi-ld:entity:esp_iknow/attrs";
+    var data = "{\"qrcode\": {\"type\": \"text\",\"value\": \"\"}}";
+    $.ajax({
+        type: 'POST',
+        url: api,
+        dataType: 'json',
+        data: data,
+        headers:
+        {
+            "Content-Type": "application/json",
+            "fiware-service": "helixiot",
+            "fiware-servicepath": "/",
+        },
+        success: function (dados) {
+            //console.log("QR Code apagado");
+        }
+    })
 }
 
 function deleteProduto(id) {
