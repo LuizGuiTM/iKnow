@@ -1,5 +1,4 @@
-﻿
-.textured {
+﻿.textured {
     background-image: url('../img/blue-watercolor-texture-background.jpg');
     background-repeat: repeat;
 }
@@ -8,11 +7,11 @@
     background-color: #ffffff;
 }
 
-fieldset {
 .texturedHome {
     background-repeat: repeat;
     background-image: url('../img/673f5cf444b0b29e9aab9cbf433c9a9e.jpg');
 }
+
 .titulo {
     display: flex;
     justify-content: center;
@@ -20,22 +19,25 @@ fieldset {
     text-align: center;
     height: 80vh;
 }
+
 .subtitulo {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 .white {
     background-color: #ffffff;
 }
+
 .fieldsetCustom {
     margin: 20px;
     padding: 50px;
     border-radius: 15px;
     padding-top: 10px;
-
 }
+
 .divCustom {
     border-radius: 15px;
 }
@@ -124,10 +126,10 @@ legend {
     display: flex;
     justify-content: center; /* center everything */
     align-items: center;
-    margin-top: 20px;
     padding: 0 260px; /* prevent crawling on the logo */
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
-  
+
 body {
     min-height: 100vh;
     display: flex;
@@ -149,18 +151,33 @@ body {
 .logo {
     position: absolute; /* remove the logo from the flow */
     left: 20px; /* move the logo to left */
+    top: 5px;
     height: 54px;
     width: 100px;
 }
+
+.botaonav {
+    background-color: #00abbe;
+    color: white;
+    transition-duration: 0.4s;
+    padding: 7px;
+    padding-left: 13px;
+    padding-right: 13px;
+    border-radius: 18px;
+    /*border: 2px solid #008CBA;*/
+}
+
+    .botaonav:hover {
+        color:white;
+        background-color: #ec673a;
+        text-decoration: none;
+    }
+
 
 #nav-bar > ul {
     display: flex; /* make a horizontal menu */
     gap: 20px; /* gap between menu items */
     list-style: none;
     padding-left: 0px;
-}
-
-.img, #nav-bar > ul > li {
-        border: 1px solid gray;
-        padding: 5px;
+    padding-top: 20px;
 }

@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <header id="header">
+    <header id="header" class="white">
         <div class="logo">
             <a asp-controller="Home" asp-action="Index">
                 <img src="~/img/iknowfull.png" alt="image of the logo" id="header-img" width="100px" height="54px" />
@@ -23,26 +23,26 @@
                     @if (ViewBag.FuncionarioRH == true)
                     {
                         <li>
-                            <a class="nav-link" asp-controller="Funcionario" asp-action="Index">Gerenciar Funcionarios</a>
+                            <a class="botaonav" asp-controller="Funcionario" asp-action="Index">Gerenciar Funcionarios</a>
                         </li>
                     }
                     <li>
-                        <a class="nav-link" asp-controller="Cliente" asp-action="Index">Gerenciar Clientes</a>
+                        <a class="botaonav" asp-controller="Cliente" asp-action="Index">Gerenciar Clientes</a>
                     </li>
                     <li>
-                        <a class="nav-link"  asp-controller="Produto" asp-action="Index">Gerenciar Produtos</a>
+                        <a class="botaonav" asp-controller="Produto" asp-action="Index">Gerenciar Produtos</a>
                     </li>
                     <li>
-                        <a class="nav-link" asp-controller="Login" asp-action="LogOff">Log Off</a>
+                        <a class="botaonav" asp-controller="Login" asp-action="LogOff">Log Off</a>
                     </li>
                 }
                 else
                 {
                     <li>
-                        <a class="nav-link" asp-controller="Loja" asp-action="Index">Fazer Compras</a>
+                        <a class="botaonav" asp-controller="Loja" asp-action="Index">Fazer Compras</a>
                     </li>
                     <li>
-                        <a class="nav-link" asp-controller="Login" asp-action="Index">Área do Funcionário</a>
+                        <a class="botaonav" asp-controller="Login" asp-action="Index">Área do Funcionário</a>
                     </li>
                 }
             </ul>
