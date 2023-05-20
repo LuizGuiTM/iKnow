@@ -22,6 +22,10 @@
             <td>
                 <a href="/produto/Edit?id=@produto.Id" class="btn btn-info">Alterar</a>
                 <a href="javascript:deleteProduto(@produto.Id)" class="btn btn-danger">Apagar</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Produto" asp-action="ExibeConsultaAvancada">
+                 Consulta
+                 Avançada de Produtos
+                </a>
             </td>
             <td>@produto.Id</td>
             <td>@produto.Nome</td>

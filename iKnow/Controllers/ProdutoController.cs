@@ -2,7 +2,10 @@
 using iKnow.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.IO;
 
 namespace iKnow.Controllers
@@ -52,5 +55,40 @@ namespace iKnow.Controllers
             }
 
         }
+        public IActionResult ExibeConsultaAvancada()
+        {
+            try
+            {
+                return View("Consulta");
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.Message));
+            }
+        }
+        public IActionResult ObtemDadosConsultaAvancada(string nome,
+                                                         string categoria,
+                                                         double precoInicial,
+                                                         double precoFinal
+                                                        )
+        {
+            try
+            {
+                ProdutoDAO dao = new ProdutoDAO();
+                if (string.IsNullOrEmpty(nome))
+                    nome = "";
+                if (string.IsNullOrEmpty(categoria))
+                    categoria = "";
+                if (precoFinal == 0)
+                    precoFinal = 10000000000000;
+                var lista = dao.ConsultaAvancadaJogos(nome, categoria, precoInicial, precoFinal);
+                return PartialView("pvGridProduto", lista);
+            }
+            catch (Exception erro)
+            {
+                return Json(new { erro = true, msg = erro.Message });
+            }
+        }
+
     }
 }
