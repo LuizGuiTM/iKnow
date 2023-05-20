@@ -5,8 +5,8 @@
 <div class="row">
     <div class="col-lg-3">
         <form action="/login/Fazlogin" method="post">
-            <label for="usuario" class="control-label">Usuário</label>
-            <input type="text" name="usuario" class="form-control" required placeholder='Usuário...' />
+            <label for="usuario" class="control-label">CPF</label>
+            <input type="text" name="usuario" class="form-control" required placeholder='CPF...' />
             <label for="senha" class="control-label">Senha</label>
             <input type="password" name="senha" class="form-control" required placeholder='Senha...' />
             <br />
@@ -14,5 +14,8 @@
             <br />
             <span class="text-danger"> @ViewBag.Erro</span>
         </form>
+        <br />
+        <br />
+        <a href="/funcionario/create" class="btn btn-info">Primeiro Acesso</a>
     </div>
 </div>

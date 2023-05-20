@@ -52,7 +52,6 @@ namespace iKnow.Controllers
                     model.ImagemEmByte = ConvertImageToByte(model.Imagem);
                 }
             }
-
         }
         public IActionResult ObtemDadosConsultaAvancada(string nome,
                                                          string categoria,

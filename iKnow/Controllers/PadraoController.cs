@@ -116,8 +116,16 @@ namespace iKnow.Controllers
         {
             if (ExigeAutenticacao && !HelperControllers.VerificaUserLogado(HttpContext.Session))
                 context.Result = RedirectToAction("Index", "Login");
+
+            else if (HelperControllers.VerificaFuncionarioRH(HttpContext.Session))
+            {
+                ViewBag.Logado = true;
+                ViewBag.FuncionarioRH = true;
+                base.OnActionExecuting(context);
+            }
             else
             {
+                ViewBag.FuncionarioRH = false;
                 ViewBag.Logado = true;
                 base.OnActionExecuting(context);
             }

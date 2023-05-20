@@ -22,6 +22,7 @@ namespace iKnow.Controllers
         public IActionResult Index()
         {
             ViewBag.Logado = HelperControllers.VerificaUserLogado(HttpContext.Session);
+            ViewBag.FuncionarioRH = HelperControllers.VerificaFuncionarioRH(HttpContext.Session);
             ViewBag.Operacao = "login";
             return View();
         }
