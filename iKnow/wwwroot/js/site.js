@@ -1023,4 +1023,23 @@ async function apagaqrcode() {
     }
 }
 
-*/
+function aplicaFiltroConsultaAvancada() {
+    var vNome = document.getElementById('nome').value;
+    var vCategoria = document.getElementById('categoria').value;
+    var vPrecoInicial = document.getElementById('precoInicial').value;
+    var vPrecoFinal = document.getElementById('precoFinal').value;
+
+    $.ajax({
+        url: "/produto/ObtemDadosConsultaAvancada",
+        data: { nome: vNome, categoria: vCategoria, precoInicial: vPrecoInicial, precoFinal: vPrecoFinal },
+        success: function (dados) {
+            if (dados.erro != undefined) {
+                alert(dados.msg);
+            }
+            else {
+                document.getElementById('resultadoConsulta').innerHTML = dados;
+            }
+        },
+    });
+
+}

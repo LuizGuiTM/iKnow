@@ -1,5 +1,6 @@
 ﻿using iKnow.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
@@ -26,6 +27,23 @@ namespace iKnow.DAO
              };
             return parametros;
         }
+        public List<ProdutoViewModel> ConsultaAvancadaJogos(string nome,
+                                                         string categoria,
+                                                         double precoInicial,
+                                                         double precoFinal)
+        {
+             SqlParameter[] p = {
+             new SqlParameter("nome", nome),
+             new SqlParameter("categoria", categoria),
+             new SqlParameter("precoInicial", precoInicial),
+             new SqlParameter("precoFinal", precoFinal),
+            };
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaAvancadaProdutos", p);
+            var lista = new List<ProdutoViewModel>();
+            foreach (DataRow dr in tabela.Rows)
+                lista.Add(MontaModel(dr));
+            return lista;
+        }
 
         protected override ProdutoViewModel MontaModel(DataRow registro)
         {
@@ -37,8 +55,11 @@ namespace iKnow.DAO
                 QtdDisponivel = Convert.ToInt32(registro["QuantidadeDisponivel"]),
                 Categoria = registro["Categoria"].ToString()
             };
-            if (registro["imagem"] != DBNull.Value)
-                p.ImagemEmByte = registro["Imagem"] as byte[];
+            if (registro.Table.Columns.Contains("imagem"))
+            {
+                if (registro["imagem"] != DBNull.Value)
+                    p.ImagemEmByte = registro["Imagem"] as byte[];
+            }     
             return p;
         }
 
