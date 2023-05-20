@@ -6,4 +6,16 @@
 .white {
     background-color: #ffffff;
 }
+fieldset {
+    margin: 20px;
+    padding: 0 10px 10px;
+    border: 1px solid #666;
+    border-radius: 8px;
+    padding-top: 10px;
+}
+
+legend {
+    padding: 2px 4px;
+}
+
 
