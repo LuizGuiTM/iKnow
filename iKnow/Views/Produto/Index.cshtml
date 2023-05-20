@@ -1,13 +1,15 @@
 ﻿@using iKnow.Controllers;
 @model List<ProdutoViewModel>
-    @{
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <header>
     <link href="@Url.Content("~/css/consulta.css")" rel="stylesheet" type="text/css" />
 </header>
 <body class="textured">
+
     <h2 style="color: #FFF"class="h2Conulta">Listagem de Produtos</h2>
+    <br />
 
     <a type="button" class="btn btn-success" href="/produto/create">Novo produto</a>
     <br />
@@ -39,12 +41,13 @@
             </div>
         </div>
     </fieldset>
+
     </div>
     <div id="resultadoConsulta" class="table-responsive white">
     </div>
-    
+
 </body>
-    
+
 <script>
     window.addEventListener('load', function () {
         // Faz uma chamada assíncrona para o método da controller

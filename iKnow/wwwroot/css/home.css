@@ -27,6 +27,35 @@
 .white {
     background-color: #ffffff;
 }
+
+
+.fieldsetCustom {
+    margin: 20px;
+    padding: 50px;
+    border-radius: 15px;
+    padding-top: 10px;
+}
+
+.divCustom {
+    border-radius: 15px;
+}
+
+.table-scroll {
+    max-height: 60vh; /* Defina a altura máxima desejada */
+    overflow: auto; /* Habilita a barra de rolagem quando o conteúdo exceder a altura máxima */
+}
+
+legend {
+    padding: 2px 4px;
+}
+
+.h2Consulta {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
 .rounded-div {
     border: 1px solid #666;
     border-radius: 20px;

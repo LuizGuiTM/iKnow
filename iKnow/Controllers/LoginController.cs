@@ -39,6 +39,7 @@ namespace CadAlunoMVC.Controllers
         public IActionResult LogOff()
         {
             HttpContext.Session.Remove("Logado");
+            HttpContext.Session.Remove("FuncionarioRH");
             return RedirectToAction("Index");
         }
     }
