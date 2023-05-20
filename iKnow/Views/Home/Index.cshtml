@@ -6,14 +6,11 @@
 }
 <div class="text-center">
     <h1 class="display-4">Bem vindo à iKnow, a primeira livraria completamente automizada do Brasil!</h1>
-    <p>Apresente seu QR Code de cliente na máquina para obter acesso e realizar suas compras.
-    <br />Quando a luz ficar verde, clique abaixo para confirmar seu acesso.</p>
-    <input type="text" id="qrcode" name="qrcode" value="" />
-    <input type="button" value="Confirmar acesso" onclick="enviaqrcode()" />
-    @if (ViewBag.Error != null)
-    {
-        <h3 style="color:red">@ViewBag.Error</h3>
-    }
-    <p>Não possui cadastro? <a href="Cliente/Create">Clique aqui para cadastrar-se</a>.</p>
-    <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
 </div>
+
+<script>
+    // Executar enviaqrcode assim que a view for carregada
+    $(document).ready(function () {
+        apagaqrcode();
+    });
+</script>
