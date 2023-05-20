@@ -1,0 +1,30 @@
+﻿@model List<ProdutoViewModel>
+<header>
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css" />
+</header>
+<div class="table-scroll">
+    <table class="table table-striped">
+        <tr>
+            <th>Ações</th>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Quantidade Disponivel</th>
+            <th>Preço</th>
+        </tr>
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/produto/Edit?id=@produto.Id" class="btn btn-info">Alterar</a>
+                    <a href="javascript:deleteProduto(@produto.Id)" class="btn btn-danger">X</a>
+                </td>
+                <td>@produto.Id</td>
+                <td>@produto.Nome</td>
+                <td>@produto.Categoria</td>
+                <td>@produto.QtdDisponivel</td>
+                <td>@produto.Preco.ToString("0.00")</td>
+            </tr>
+        }
+    </table>
+</div>
