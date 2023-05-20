@@ -14,9 +14,10 @@ fieldset {
     padding-top: 10px;
 }
 .table-scroll {
-    max-height: 20vh; /* Defina a altura máxima desejada */
+    max-height: 60vh; /* Defina a altura máxima desejada */
     overflow: auto; /* Habilita a barra de rolagem quando o conteúdo exceder a altura máxima */
 }
+
 legend {
     padding: 2px 4px;
 }
