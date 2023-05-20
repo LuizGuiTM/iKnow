@@ -16,5 +16,14 @@ namespace CadastroAlunoV1.Controllers
             else
                 return true;
         }
+
+        public static Boolean VerificaFuncionarioRH(ISession session)
+        {
+            string FuncionarioRH = session.GetString("FuncionarioRH");
+            if (FuncionarioRH == null)
+                return false;
+            else
+                return true;
+        }
     }
 }

@@ -50,7 +50,6 @@ namespace iKnow.Controllers
                     model.ImagemEmByte = ConvertImageToByte(model.Imagem);
                 }
             }
-
         }
     }
 }

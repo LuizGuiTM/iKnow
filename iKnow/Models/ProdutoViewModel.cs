@@ -11,7 +11,7 @@ namespace iKnow.Models
 
         public int QtdDisponivel { get; set; }
                 
-                    public string Categoria { get; set; }
+        public string Categoria { get; set; }
 
         public IFormFile Imagem { get; set; }
 

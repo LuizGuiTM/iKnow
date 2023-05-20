@@ -1,0 +1,41 @@
+﻿@model List<FuncionarioViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listagem de Funcionários</h2>
+
+<a href="/funcionario/create" class="btn btn-secondary">Cadastrar novo funcionário</a>
+<br />
+<br />
+
+<table class="table table-responsive">
+    <tr>
+        <th>Ações</th>
+        <th>Código</th>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Salario</th>
+        <th>Cargo</th>
+        <th>Data de Nascimento</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+    </tr>
+    @foreach (var funcionario in Model)
+    {
+        <tr>
+            <td>
+                <a href="/funcionario/Edit?id=@funcionario.Id" class="btn btn-info">Alterar</a>
+                <a href="javascript:deleteFuncionario(@funcionario.Id)" class="btn btn-danger">Apagar</a>
+            </td>
+            <td>@funcionario.Id</td>
+            <td>@funcionario.Cpf</td>
+            <td>@funcionario.Nome</td>
+            <td>@funcionario.Salario?.ToString("C")</td>
+            <td>@funcionario.Cargo</td>
+            <td>@funcionario.DataNasc?.ToString("yyyy-MM-dd")</td>
+            <td>@funcionario.Cidade</td>
+            <td>@funcionario.Estado</td>
+        </tr>
+    }
+</table>

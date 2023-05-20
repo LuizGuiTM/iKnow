@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 namespace iKnow.DAO
 {
@@ -10,16 +11,41 @@ namespace iKnow.DAO
         public static FuncionarioDAO getInstance() { return new FuncionarioDAO(); }
         protected override SqlParameter[] CriaParametros(FuncionarioViewModel model)
         {
+            object salario = model.Salario;
+            if (salario == null)
+                salario = DBNull.Value;
+
+            object dataDeNascimento = model.DataNasc;
+            if (dataDeNascimento == null)
+                dataDeNascimento = SqlDateTime.MinValue.Value;
+
+            object Nome = model.Nome;
+            if (Nome == null)
+                Nome = DBNull.Value;
+
+            object Cargo = model.Cargo;
+            if (Cargo == null)
+                Cargo = DBNull.Value;
+
+            object Estado = model.Estado;
+            if (Estado == null)
+                Estado = DBNull.Value;
+
+            object Cidade = model.Cidade;
+            if (Cidade == null)
+                Cidade = DBNull.Value;
+
             SqlParameter[] parametros =
                  {
                  new SqlParameter("Id", model.Id),
-                 new SqlParameter("Nome", model.Nome),
+                 new SqlParameter("Nome", Nome),
                  new SqlParameter("CPF", model.Cpf),
-                 new SqlParameter("DataNascimento", model.DataNasc),
-                 new SqlParameter("Salario", model.Salario),
-                 new SqlParameter("Cargo", model.Cargo),
-                 new SqlParameter("Estado", model.Estado),
-                 new SqlParameter("Cidade", model.Cidade)
+                 new SqlParameter("DataNascimento", dataDeNascimento),
+                 new SqlParameter("Salario", salario),
+                 new SqlParameter("Cargo", Cargo),
+                 new SqlParameter("Estado", Estado),
+                 new SqlParameter("Senha", model.Senha),
+                 new SqlParameter("Cidade", Cidade)
                  };
             return parametros;
         }
@@ -31,13 +57,30 @@ namespace iKnow.DAO
                 Id = Convert.ToInt32(registro["Id"]),
                 Nome = registro["Nome"].ToString(),
                 Cpf = registro["CPF"].ToString(),
-                DataNasc = Convert.ToDateTime(registro["DataNascimento"]),
-                Salario = Convert.ToDouble(registro["Salario"]),
                 Cargo = registro["Cargo"].ToString(),
                 Estado = registro["Estado"].ToString(),
                 Cidade = registro["Cidade"].ToString(),
                 Senha = registro["Senha"].ToString()    
             };
+
+            if (registro["Salario"] != DBNull.Value)
+                f.Salario = Convert.ToDouble(registro["Salario"]);
+
+            if (registro["DataNascimento"] != DBNull.Value)
+                f.DataNasc = Convert.ToDateTime(registro["DataNascimento"]);
+
+            if (registro["Nome"] != DBNull.Value)
+                f.Nome = Convert.ToString(registro["Nome"]);
+
+            if (registro["Estado"] != DBNull.Value)
+                f.Estado = Convert.ToString(registro["Estado"]);
+
+            if (registro["Cidade"] != DBNull.Value)
+                f.Cidade = Convert.ToString(registro["Cidade"]);
+
+            if (registro["Cargo"] != DBNull.Value)
+                f.Cargo = Convert.ToString(registro["Cargo"]);
+
             return f;
         }
         public FuncionarioViewModel Consulta(string CPF)
