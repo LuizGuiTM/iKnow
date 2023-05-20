@@ -10,62 +10,62 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="text-align:center">
-            <div class="container">
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        @if(ViewBag.Logado == true)
-                        {
-                            @if (ViewBag.FuncionarioRH == true)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Funcionario" asp-action="Index">Gerenciar Funcionarios</a>
-                                </li>
-                            }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="Index">Gerenciar Clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Produto" asp-action="Index">Gerenciar Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="LogOff">Log Off</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Loja" asp-action="Index">Fazer Compras</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Área do Funcionário</a>
-                            </li>
-                        }
-
-                    </ul>
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img src="~/img/iknowfull.png" width="100px" height="52px" />
+    <header id="header" class="white">
+        <div class="logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="~/img/iknowfull.png" alt="image of the logo" id="header-img" width="100px" height="54px" />
             </a>
-            </div>
-            </div>
-        </nav>
+        </div>
+        <nav id="nav-bar">
+            <ul id="menu">
+                @if (ViewBag.Logado == true)
+                {
+                    @if (ViewBag.FuncionarioRH == true)
+                    {
+                        <li>
+                            <a class="botaonav" asp-controller="Funcionario" asp-action="Index">Gerenciar Funcionarios</a>
+                        </li>
+                    }
+                    <li>
+                        <a class="botaonav" asp-controller="Cliente" asp-action="Index">Gerenciar Clientes</a>
+                    </li>
+                    <li>
+                        <a class="botaonav" asp-controller="Produto" asp-action="Index">Gerenciar Produtos</a>
+                    </li>
+                    <li>
+                        <a class="botaonav" asp-controller="Login" asp-action="LogOff">Log Off</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a class="botaonav" asp-controller="Loja" asp-action="Index">Fazer Compras</a>
+                    </li>
+                    <li>
+                        <a class="botaonav" asp-controller="Login" asp-action="Index">Área do Funcionário</a>
+                    </li>
+                }
+            </ul>
+            </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="white" style="position: absolute;bottom: 0; width: 100%;">
-        <div style="color: #777;margin: 15px;padding: 15px 0;">
-            <img src="~/img/iknowfull.png" width="100px" height="52px" />
-            &copy; Copyright iKnow
-        </div>
-    </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
+<footer class="footer white" style="position: absolute;bottom: 0; width: 100%;">
+        <div class="footer-content">
+            <img src="~/img/iknowfull.png" width="100px" height="52px" />
+            &copy; Copyright iKnow
+        </div>
+    </footer>
 </html>
+
