@@ -1,7 +1,4 @@
-﻿.textured {
-    background-image: url('../img/blue-watercolor-texture-background.jpg');
-    background-repeat: repeat;
-}
+﻿
 
 .FormLogin {
     float: right;
@@ -18,23 +15,28 @@
 }
 
 .texturedHome {
-    background-repeat: repeat;
-    background-image: url('../img/673f5cf444b0b29e9aab9cbf433c9a9e.jpg');
+    background-image: url('../img/fundo.jpg');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+.hometext {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .titulo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    height: 80vh;
+    margin: auto;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .subtitulo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
 .fieldsetCustom {
@@ -63,21 +65,12 @@ legend {
     margin-bottom: 20px;
 }
 
+
 .rounded-div {
     border: 1px solid #666;
     border-radius: 20px;
 }
 
-.btn-successConsulta {
-    background-color: #28a745;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 10px;
-    transition: none;
-}
 
 #areaFiltro {
     border: 1px solid #ccc;
@@ -102,18 +95,6 @@ legend {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.col-lg-4 {
-    width: 33.33%;
-    float: left;
-    padding-right: 10px;
-}
-
-.col-lg-1 {
-    width: 8.33%;
-    float: left;
-    padding-right: 10px;
 }
 
 #resultadoConsulta {
@@ -143,14 +124,17 @@ body {
 }
 
 .footer {
+    height: 80px;
     margin-top: auto;
+    box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.2);
 }
 
 .footer-content {
     color: #777;
     margin: 15px;
+    margin-top: 5px;
     padding: 15px 0;
-    text-align: center;
+    text-align: left;
 }
 
 

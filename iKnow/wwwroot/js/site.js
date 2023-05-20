@@ -263,3 +263,23 @@ function aplicaFiltroConsultaAvancada() {
     });
 
 }
+function aplicaFiltroConsultaAvancadaCliente() {
+    var vNome = document.getElementById('nome').value;
+    var vCPF = document.getElementById('CPF').value;
+    var vDescontoInicial = document.getElementById('descontoInicial').value;
+    var vDescontoFinal = document.getElementById('descontoFinal').value;
+
+    $.ajax({
+        url: "/cliente/ObtemDadosConsultaAvancada",
+        data: { nome: vNome, CPF: vCPF, descontoInicial: vDescontoInicial, descontoFinal: vDescontoFinal },
+        success: function (dados) {
+            if (dados.erro != undefined) {
+                alert(dados.msg);
+            }
+            else {
+                document.getElementById('resultadoConsulta').innerHTML = dados;
+            }
+        },
+    });
+
+}

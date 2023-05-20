@@ -3,30 +3,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Listagem de Clientes</h2>
+<header>
+    <link href="@Url.Content("~/css/consulta.css")" rel="stylesheet" type="text/css" />
+</header>
 
-<a href="/cliente/create">Cadastrar novo cliente</a>
-<br />
+<body class="textured">
+    <h2 style="color: #FFF" class="h2Consulta">Listagem de Clientes</h2>
+    <a type="button" class="btn btn-success" href="/cliente/create">Novo cliente</a>
+    <br />
+    <div class="divCustom white">
+        <fieldset class="fieldsetCustom">
+            <legend>Consulta de Clientes</legend>
+            <div class="row">
+                <div class="col-lg-4">
+                    Nome<br />
+                    <input type="text" id="nome" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+                    CPF<br />
+                    <input type="text" id="CPF" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+                    Desconto Inicial<br />
+                    <input type="number" id="descontoInicial" step="0.01" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+                    Desconto Final<br />
+                    <input type="number" id="descontoFinal" step="0.01" class="form-control" />
+                </div>
+                <div class="col-lg-1">
+                    <br />
+                    <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                           onclick="aplicaFiltroConsultaAvancadaCliente()" />
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div id="resultadoConsulta" class="table-responsive white">
+    </div>
+</body>
 
-<table class="table table-responsive">
-    <tr>
-        <th>Ações</th>
-        <th>Código</th>
-        <th>Nome</th>
-        <th>Cpf</th>
-        <th>Desconto</th>
-    </tr>
-    @foreach (var cliente in Model)
-    {
-        <tr>
-            <td>
-                <a href="/cliente/Edit?id=@cliente.Id" class="btn btn-info">Alterar</a>
-                <a href="javascript:deleteCliente(@cliente.Id)" class="btn btn-danger">Apagar</a>
-            </td>
-            <td>@cliente.Id</td>
-            <td>@cliente.Nome</td>
-            <td>@cliente.Cpf</td>
-            <td>@cliente.Desconto.ToString("0.00")</td>
-        </tr>
-    }
-</table>
+
+<script>
+    window.addEventListener('load', function () {
+        // Faz uma chamada assíncrona para o método da controller
+        aplicaFiltroConsultaAvancadaCliente();
+    });
+</script>
