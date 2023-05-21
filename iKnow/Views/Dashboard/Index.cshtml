@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header>
+    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css" />
+</header>
+
+<br />
+
+<input id="Graph" class="btn btn-primary" value="Exibir Dashboard" type="button" onclick="ColetaDadosDashboard()" />
+
+<br />
+<br />
+
+<div class="graficos-container">
+
+    <div class="grafico">
+        <canvas id="PieGraph" class="TamanhoGraficos"></canvas>
+    </div>
+
+    <div class="grafico">
+        <canvas id="DonutGraph" class="TamanhoGraficos"></canvas>
+    </div>
+
+    <div class="grafico grafico-centralizado">
+        <canvas id="BarGraph" class="TamanhoGraficos"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

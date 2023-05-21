@@ -1,3 +1,4 @@
+
 ﻿.loja {
     display: flex;
     margin: 0;
@@ -63,6 +64,19 @@
     font-family: Tahoma, sans-serif;
     font-weight: bold;
     box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+
+﻿.textured {
+    background-image: url('../img/blue-watercolor-texture-background.jpg');
+}
+
+.FormLogin {
+    float: right;
+    margin-top: 130px;
+    margin-right: 0px;
+}
+
+.BorderForms {
+    border-radius: 15px;
 }
 
 .white {
@@ -91,6 +105,7 @@
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
+  
 .hometext {
     height: 100vh;
     position: relative;
@@ -108,11 +123,6 @@
 
 .subtitulo {
 }
-
-.white {
-    background-color: #ffffff;
-}
-
 
 .fieldsetCustom {
     margin: 20px;
@@ -146,7 +156,40 @@ legend {
     border-radius: 20px;
 }
 
+.grafico canvas {
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
 
+.graficos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+#Graph {
+    display: block; 
+    margin: 0 auto; 
+}
+
+.grafico {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 15px;
+}
+
+.grafico-centralizado {
+    flex-basis: 100%;
+    text-align: center; 
+}
+
+.TamanhoGraficos {
+    width: 100%;
+    height: 400px;
+}
 #areaFiltro {
     border: 1px solid #ccc;
     padding: 20px;

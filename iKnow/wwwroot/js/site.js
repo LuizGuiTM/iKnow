@@ -220,7 +220,7 @@ function alteraestado(estado) {
             "fiware-servicepath": "/",
         },
         success: function (dados) {
-            console.log("Estado:" , estado , "\n Enviado para o Helix.");
+            console.log("Estado:", estado, "\n Enviado para o Helix.");
         }
     })
 }
@@ -230,10 +230,10 @@ function rendercarrinho() {
     var api = "/Loja/CarrinhoView";
     $.ajax({
         url: api,
-            success: function(dados) {
-                console.log("Renderizando o Carrinho")
-                document.getElementById('listacarrinho').innerHTML = dados;
-            }
+        success: function (dados) {
+            console.log("Renderizando o Carrinho")
+            document.getElementById('listacarrinho').innerHTML = dados;
+        }
     })
 }
 
@@ -252,6 +252,111 @@ function deleteCarrinho() {
                 console.log("Carrinho apagado.");
             }
         })
+    }
+}
+
+function ColetaDadosDashboard() {
+    $.ajax({
+        type: "POST",
+        url: "/Dashboard/GetQuantidadeFuncionariosPorEstado",
+        data: "",
+        contextType: "application/json; charset=utf-8",
+        dataType: "json",
+
+        success: OnSuccessQuantidadeFuncionariosPorEstado,
+        error: OnError
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "/Dashboard/GetQuantidadeLivrosPorCategoria",
+        data: "",
+        contextType: "application/json; charset=utf-8",
+        dataType: "json",
+
+        success: OnSuccessQuantidadeLivrosPorCategoria,
+        error: OnError
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "/Dashboard/GetQuantidadeDisponivelLivrosPorCategoria",
+        data: "",
+        contextType: "application/json; charset=utf-8",
+        dataType: "json",
+
+        success: OnSuccessQuantidadeDisponivelLivrosPorCategoria,
+        error: OnError
+    });
+
+    function OnSuccessQuantidadeFuncionariosPorEstado(data) {
+        var _data = data;
+        var _chartLabels = _data[0];
+        var _chartData = _data[1];
+
+        var barColor = ["red", "blue", "green", "orange", "brown", "purple"];
+
+        new Chart("BarGraph",
+            {
+                type: "bar",
+                data: {
+                    labels: _chartLabels,
+                    datasets: [{
+                        backgroundColor: barColor,
+                        data: _chartData,
+                        borderWidth: 1,
+                        label: "Funcionários por Estado"
+                    }]
+                }
+            });
+    }
+
+    function OnSuccessQuantidadeLivrosPorCategoria(data) {
+        var _data = data;
+        var _chartLabels = _data[0];
+        var _chartData = _data[1];
+
+        var barColor = ["red", "blue", "green", "orange", "brown", "purple"];
+
+        new Chart("PieGraph",
+            {
+                type: "pie",
+                data: {
+                    labels: _chartLabels,
+                    datasets: [{
+                        backgroundColor: barColor,
+                        data: _chartData,
+                        borderWidth: 1,
+                        label: "Quantidade de Livros por Categoria"
+                    }]
+                }
+            });
+    }
+
+    function OnSuccessQuantidadeDisponivelLivrosPorCategoria(data) {
+        var _data = data;
+        var _chartLabels = _data[0];
+        var _chartData = _data[1];
+
+        var barColor = ["red", "blue", "green", "orange", "brown", "purple"];
+
+        new Chart("DonutGraph",
+            {
+                type: "doughnut",
+                data: {
+                    labels: _chartLabels,
+                    datasets: [{
+                        backgroundColor: barColor,
+                        data: _chartData,
+                        borderWidth: 1,
+                        label: "Estoque de Livros por Categoria"
+                    }]
+                }
+            });
+    }
+
+    function OnError(err) {
+
     }
 }
 

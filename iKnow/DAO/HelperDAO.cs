@@ -80,7 +80,7 @@ namespace iKnow.DAO
 
 
 
-        /*
+		/*
          --CREATE DATABASE
 
 CREATE DATABASE iKnow  
@@ -503,10 +503,33 @@ where produtos.Nome like '%' + @nome + '%' and
  Produtos.Preco between @precoInicial and @precoFinal and
  Produtos.Categoria like '%' + @categoria + '%';
 end
+GO
+
+Create procedure [dbo].[spConsultaAvancadaClientes]
+(
+     @nome varchar(max),
+    @cpf varchar(max),
+    @descontoInicial float,
+    @descontoFinal float)
+as
+begin
+ select clientes.Id, clientes.Nome,clientes.CPF,clientes.DataNascimento,Clientes.Documento, Clientes.Cidade, clientes.Estado, Clientes.Credito, clientes.Desconto
+from clientes
+where clientes.Nome like '%' + @nome + '%' and
+ clientes.Desconto between @descontoInicial and @descontoFinal and
+ clientes.CPF like '%' + @cpf + '%';
+end
          
          
-         
-         
+ --Quantidade de funcionarios por estado (Bar Graph)
+select count(id) as 'Value', Estado as 'Label' from Funcionarios group by Estado
+
+--Quantiadade de produtos por Categoria (Pie Graph)
+select count(id) as 'Value', Categoria as 'Label' from Produtos group by categoria
+
+--Quantiadade disponivel de produtos por Categoria (Donut Graph)
+select sum(QuantidadeDisponivel) as 'Value', Categoria as 'Label' from Produtos group by categoria
+
          */
-    }
+	}
 }

@@ -12,7 +12,9 @@ namespace iKnow.DAO
         {
             //string strCon = "Data Source=LOCALHOST; Database=iKnow; user id=sa; password=123456";
             //string strCon = @"Data Source=DESKTOP-MMNHGJS\SQLEXPRESS;Initial Catalog=iKnow;integrated security=true";
-            string strCon = "Data Source=LG\\SQLEXPRESS;Initial Catalog=iKnow2;Trusted_connection=true;encrypt=false";
+            //string strCon = "Data Source=LG\\SQLEXPRESS;Initial Catalog=iKnow2;Trusted_connection=true;encrypt=false";
+            string strCon = "Data Source=LOCALHOST\\SQLEXPRESS; Database=iKnow; integrated security=true";
+            //string strCon = "Data Source=LG\\SQLEXPRESS;Initial Catalog=iKnow2;Trusted_connection=true;encrypt=false";
             SqlConnection conexao = new SqlConnection(strCon);
             conexao.Open();
             return conexao;

@@ -7,40 +7,41 @@
     <link href="@Url.Content("~/css/consulta.css")" rel="stylesheet" type="text/css" />
 </header>
 <body class="textured">
+    <br />
+    <h2 class="h2Consulta">Listagem de Produtos</h2>
 
-    <h2 style="color: #FFF"class="h2Conulta">Listagem de Produtos</h2>
     <br />
 
-    <a type="button" class="btn btn-success" href="/produto/create">Novo produto</a>
+    <a type="button" class="btn btn-secondary" href="/produto/create">Novo produto</a>
     <br />
     <div class="divCustom white">
 
         <fieldset class="fieldsetCustom">
-        <legend>Consulta de Produtos</legend>
-        <div class="row">
-            <div class="col-lg-4">
-                Nome<br />
-                <input type="text" id="nome" class="form-control" />
+            <legend>Consulta de Produtos</legend>
+            <div class="row">
+                <div class="col-lg-4">
+                    Nome<br />
+                    <input type="text" id="nome" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+                    Categoria<br />
+                    <input type="text" id="categoria" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+                    Preço inicial<br />
+                    <input type="number" id="precoInicial" step="0.01" class="form-control" />
+                </div>
+                <div class="col-lg-4">
+                    Preço Final<br />
+                    <input type="number" id="precoFinal" step="0.01" class="form-control" />
+                </div>
+                <div class="col-lg-1">
+                    <br />
+                    <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                           onclick="aplicaFiltroConsultaAvancada()" />
+                </div>
             </div>
-            <div class="col-lg-4">
-                Categoria<br />
-                <input type="text" id="categoria" class="form-control" />
-            </div>
-            <div class="col-lg-4">
-                Preço inicial<br />
-                <input type="number" id="precoInicial" step="0.01" class="form-control" />
-            </div>
-            <div class="col-lg-4">
-                Preço Final<br />
-                <input type="number" id="precoFinal" step="0.01" class="form-control" />
-            </div>
-            <div class="col-lg-1">
-                <br />
-                <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
-                       onclick="aplicaFiltroConsultaAvancada()" />
-            </div>
-        </div>
-    </fieldset>
+        </fieldset>
 
     </div>
     <div id="resultadoConsulta" class="table-responsive white">
