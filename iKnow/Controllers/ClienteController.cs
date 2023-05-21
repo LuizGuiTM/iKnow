@@ -64,6 +64,12 @@ namespace iKnow.Controllers
             }
 
         }
+        public void FazOOtario()
+        {
+            ViewBag.Otario = true;
+        }
+
+
         protected override void PreencheDadosParaView(string Operacao, ClienteViewModel model)
         {
             base.PreencheDadosParaView(Operacao, model);
