@@ -521,7 +521,15 @@ where clientes.Nome like '%' + @nome + '%' and
 end
          
          
-         
+ --Quantidade de funcionarios por estado (Bar Graph)
+select count(id) as 'Value', Estado as 'Label' from Funcionarios group by Estado
+
+--Quantiadade de produtos por Categoria (Pie Graph)
+select count(id) as 'Value', Categoria as 'Label' from Produtos group by categoria
+
+--Quantiadade disponivel de produtos por Categoria (Donut Graph)
+select sum(QuantidadeDisponivel) as 'Value', Categoria as 'Label' from Produtos group by categoria
+
          */
 	}
 }
