@@ -7,41 +7,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <form action="Comprar" method="post">
-<div class="text-center">
-    <h1 class="display-4">Olá, @Model.Nome! Vamos fazer as suas compras.</h1>
-    <p>
-        Scanneie o QR Code do livro que deseja comprar para adicioná-lo à seu carrinho.
-        <br />Quando a luz ficar verde, clique abaixo para confirmar a adição do livro.
-    </p>
-    <input type="hidden" id="IdCliente" name="IdCliente" value="@Model.IdCliente" />
-    <input type="hidden" id="Desconto" name="Desconto" value="@Model.Desconto" />
-    <input type="hidden" id="Nome" name="Nome" value="@Model.Nome" />
-    <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
-    <input type="button" value="Confirmar adição" onclick="enviaqrcodecompra()" />
-    
-    @if (ViewBag.Erro != null)
-    {
-        <h3 style="color:red">@ViewBag.Erro</h3>
-    }
-    <div id="listacarrinho">
-            <form>
-                <table class="table table-striped">
-                    <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
-                    <tr>
-                        <th>Prévia</th>
-                        <th>Nome</th>
-                        <th>Gênero</th>
-                        <th>Valor</th>
-                        <th>Quantidade</th>
-                       </tr>
-                       <tr></tr>
-                </table>
-            </form>
-    </div>
+    <body class="compras">
+        <div class="container" style="min-height:82vh;height:auto">
+            <div class="lojapagina" style="margin-top: 10%">
+                <div class="textoLoja">
 
-    <input type="button" id="cancelar" value="Cancelar a Compra" onclick="cancelacompra()" />
-    <input type="submit" value="Confirmar compra" />
-</div>
+                <p style="font-size: 40px">Olá, @Model.Nome! Vamos fazer as suas compras.</p>
+                <p style="font-size: 20px">
+                    Scanneie o QR Code do livro que deseja comprar para adicioná-lo à seu carrinho.
+                    <br />
+                </p>
+                <input type="hidden" id="IdCliente" name="IdCliente" value="@Model.IdCliente" />
+                <input type="hidden" id="Desconto" name="Desconto" value="@Model.Desconto" />
+                <input type="hidden" id="Nome" name="Nome" value="@Model.Nome" />
+                <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
+
+                <div class="mostralista" style="margin-top:2%">
+                        <div id="listacarrinho" class="carrinhotable">
+                        </div>
+                </div>
+
+                <br />
+                    <div>
+                        <input style="margin-right:15px" type="button" class="botaocadastro" id="cancelar" value="Cancelar a Compra" onclick="cancelacompra()" />
+                        <input type="submit" class="botaoconfirma" value="Confirmar compra" />
+                </div>
+
+                @if (ViewBag.Erro != null)
+                {
+                    <h3 style="color:red">@ViewBag.Erro</h3>
+                }
+                </div>
+            </div>
+        </div>
+
+    </body>
+
 </form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -49,6 +50,7 @@
 
     // Executar enviaqrcode assim que a view for carregada
     $(document).ready(function () {
+        carregalista();
         apagaqrcode();
         enviaqrcode("compra");
     });

@@ -5,28 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<input type="hidden" id="operacao" value="@ViewBag.Operacao" />
-
 <body class="loja">
-    <div class="textoLoja">
-        <p>
-            Apresente seu QR Code de cliente na máquina para obter acesso e realizar suas compras.
-            <br />Quando a luz ficar verde, clique abaixo para confirmar seu acesso.
-        </p>
+    <div class="container" style="min-height:86vh;height:auto">
+        <div class="lojapagina" style="margin-top: 15%;">
+            <img src="~/img/iknowqrcode.png" height="200px" width="200px" class="imagem" />
+            <br />
+            <br />
+            <br />
+            <p class="textoLoja" style="font-size:22px">
+                Apresente seu QR Code de cliente na máquina para obter acesso e realizar suas compras.
+            </p>
+            <p class="textoLoja" style="font-size:18px">
+                <br />Quando a luz ficar verde, clique abaixo para confirmar seu acesso.
+            </p>
+            <br />
+            <br />
+            @*<p class="textoLoja">Não possui cadastro?</p>*@
+            <input type="button" class="botaocadastro" value="Não possui cadastro? Clique aqui para cadastrar-se" onclick="location.href='@Url.Action("Create","Cliente")'" />
+            <div class="textoErro">
+
+                @if (ViewBag.Erro != null)
+                {
+                    <p style="color:red">@ViewBag.Erro</p>
+                }
+                
+            </div>
+            <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
+
+        </div>
     </div>
-
-
-    <div class="textoErro">
-
-        @if (ViewBag.Erro != null)
-        {
-            <p style="color:red">@ViewBag.Erro</p>
-        }
-        <p>Não possui cadastro? <a href="Cliente/Create">Clique aqui para cadastrar-se</a>.</p>
-        <a href="Loja/Compras">Compras</a>
-    </div>
-    </body>"
-
+</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

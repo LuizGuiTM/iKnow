@@ -23,6 +23,7 @@ namespace iKnow.Controllers
 
         public ClienteController()
         {
+            ExigeAutenticacao = false;
             DAO = new ClienteDAO();
             GeraProximoId = true;
         }
