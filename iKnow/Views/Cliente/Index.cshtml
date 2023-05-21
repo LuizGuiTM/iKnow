@@ -7,41 +7,43 @@
     <link href="@Url.Content("~/css/consulta.css")" rel="stylesheet" type="text/css" />
 </header>
 
-<body class="textured">
-    <h2 style="color: #FFF" class="h2Consulta">Listagem de Clientes</h2>
-    <a type="button" class="btn btn-success" href="/cliente/create">Novo cliente</a>
-    <br />
-    <div class="divCustom white">
-        <fieldset class="fieldsetCustom">
-            <legend>Consulta de Clientes</legend>
-            <div class="row">
-                <div class="col-lg-4">
-                    Nome<br />
-                    <input type="text" id="nome" class="form-control" />
+<div class="container">
+    <body class="textured">
+        <h2 style="color: #FFF" class="h2Consulta">Listagem de Clientes</h2>
+        <a type="button" class="btn btn-success" href="/cliente/create">Novo cliente</a>
+        <br />
+        <div class="divCustom white">
+            <fieldset class="fieldsetCustom">
+                <legend>Consulta de Clientes</legend>
+                <div class="row">
+                    <div class="col-lg-4">
+                        Nome<br />
+                        <input type="text" id="nome" class="form-control" />
+                    </div>
+                    <div class="col-lg-4">
+                        CPF<br />
+                        <input type="text" id="CPF" class="form-control" />
+                    </div>
+                    <div class="col-lg-4">
+                        Desconto Inicial<br />
+                        <input type="number" id="descontoInicial" step="0.01" class="form-control" />
+                    </div>
+                    <div class="col-lg-4">
+                        Desconto Final<br />
+                        <input type="number" id="descontoFinal" step="0.01" class="form-control" />
+                    </div>
+                    <div class="col-lg-1">
+                        <br />
+                        <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
+                               onclick="aplicaFiltroConsultaAvancadaCliente()" />
+                    </div>
                 </div>
-                <div class="col-lg-4">
-                    CPF<br />
-                    <input type="text" id="CPF" class="form-control" />
-                </div>
-                <div class="col-lg-4">
-                    Desconto Inicial<br />
-                    <input type="number" id="descontoInicial" step="0.01" class="form-control" />
-                </div>
-                <div class="col-lg-4">
-                    Desconto Final<br />
-                    <input type="number" id="descontoFinal" step="0.01" class="form-control" />
-                </div>
-                <div class="col-lg-1">
-                    <br />
-                    <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
-                           onclick="aplicaFiltroConsultaAvancadaCliente()" />
-                </div>
-            </div>
-        </fieldset>
-    </div>
-    <div id="resultadoConsulta" class="table-responsive white">
-    </div>
-</body>
+            </fieldset>
+        </div>
+        <div id="resultadoConsulta" class="table-responsive white">
+        </div>
+    </body>
+</div>
 
 
 <script>
