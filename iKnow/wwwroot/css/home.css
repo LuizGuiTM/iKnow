@@ -1,3 +1,70 @@
+
+﻿.loja {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('../img/loja.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mostralista {
+    min-height: 100px;
+    max-height: 50vh;
+    border-radius: 15px;
+    background-color: white;
+    border: 20px solid white;
+    overflow: hidden;
+}
+
+.carrinhotable {
+    overflow-x: auto;
+    max-height: 49vh;
+    max-width: 99%;
+    text-align: center;
+    padding-left:10px;
+}
+
+.compras {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('../img/fundocarrinho.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.botaocadastro {
+    background-color: brown;
+    color: white;
+    transition-duration: 0.4s;
+    padding: 7px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 18px;
+    border: none;
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+}
+
+.botaoconfirma {
+    background-color: green;
+    color: white;
+    transition-duration: 0.4s;
+    padding: 7px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 18px;
+    border: none;
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+
 ﻿.textured {
     background-image: url('../img/blue-watercolor-texture-background.jpg');
 }
@@ -16,6 +83,21 @@
     background-color: #ffffff;
 }
 
+.imagem {
+    border: 10px solid white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+}
+.lojapagina {
+   text-align:center;
+}
+.textoLoja {
+    font-family: Tahoma, sans-serif;
+    color: #FFF;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
 .texturedHome {
     background-image: url('../img/fundo.jpg');
     /* Center and scale the image nicely */
@@ -23,6 +105,7 @@
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
+  
 .hometext {
     height: 100vh;
     position: relative;
@@ -164,6 +247,9 @@ body {
     box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.2);
 }
 
+.container {
+    min-height:100%
+}
 .footer-content {
     color: #777;
     margin: 15px;

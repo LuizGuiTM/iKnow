@@ -43,6 +43,19 @@ function pegaqrcode() {
     }
 }
 
+function carregalista() {
+    $.ajax({
+        url: '/Loja/CarrinhoView', // Replace 'Controller' with your actual controller name
+        type: 'GET',
+        success: function (data) {
+            $('#listacarrinho').html(data); // Replace 'targetElement' with the ID or selector of the HTML element you want to update
+        },
+        error: function () {
+            // Handle error if necessary
+        }
+    });
+}
+
 function enviaqrcode(opera) {
     if (executando) {
         return;
