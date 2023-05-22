@@ -56,19 +56,6 @@ function carregalista() {
     });
 }
 
-function viewbag() {
-    $.ajax({
-        url: '/Cliente/FazOOTario', // Replace 'Controller' with your actual controller name
-        type: 'GET',
-        success: function (data) {
-            ; // Replace 'targetElement' with the ID or selector of the HTML element you want to update
-        },
-        error: function () {
-            // Handle error if necessary
-        }
-    });
-}
-
 function enviaqrcode(opera) {
     if (executando) {
         return;
@@ -238,6 +225,46 @@ function alteraestado(estado) {
     })
 }
 
+function Cadastro() {
+    var api = '/Cliente/Create';
+    $.ajax({
+        url: api,
+        success: function (response) {
+            ViewBag();
+            console.log(response);
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        }
+    });
+}
+
+function irparacadastro() {
+    bag().then(function () {
+        console.log("chamei o bag");
+        window.location.href = "cliente/bagusuario";
+    }).catch(function (error) {
+        console.error(error);
+    });
+}
+
+function bag() {
+    return new Promise(function (resolve, reject) {
+        var api = '/Cliente/BagUsuario';
+        $.ajax({
+            url: api,
+            success: function (response) {
+                console.log("Feito, chefe.");
+                resolve(); // Resolve the promise when the AJAX request is successful
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+                reject(error); // Reject the promise if there is an error
+            }
+        });
+    });
+}
+
 
 function rendercarrinho() {
     var api = "/Loja/CarrinhoView";
@@ -404,6 +431,32 @@ function aplicaFiltroConsultaAvancadaCliente() {
         url: "/cliente/ObtemDadosConsultaAvancada",
         data: { nome: vNome, CPF: vCPF, descontoInicial: vDescontoInicial, descontoFinal: vDescontoFinal },
         success: function (dados) {
+            if (dados.erro != undefined) {
+                alert(dados.msg);
+            }
+            else {
+                document.getElementById('resultadoConsulta').innerHTML = dados;
+            }
+        },
+    });
+
+}
+
+function aplicaFiltroConsultaAvancadaFuncionario() {
+    console.log("entrei");
+    var vNome = document.getElementById('nome').value;
+    var vCPF = document.getElementById('CPF').value;
+    var vCargo = document.getElementById('cargo').value;
+    var vEstado = document.getElementById('estado').value;
+    var vCidade = document.getElementById('cidade').value;
+    var vSalarioInicial = document.getElementById('salarioInicial').value;
+    var vSalarioFinal = document.getElementById('salarioFinal').value;
+
+    $.ajax({
+        url: "/funcionario/ObtemDadosConsultaAvancada",
+        data: { nome: vNome, CPF: vCPF,cargo: vCargo, estado: vEstado, cidade: vCidade, salarioInicial: vSalarioInicial, salarioFinal: vSalarioFinal },
+        success: function (dados) {
+            console.log("chamei");
             if (dados.erro != undefined) {
                 alert(dados.msg);
             }

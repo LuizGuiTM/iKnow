@@ -9,6 +9,11 @@ namespace iKnow.Controllers
 {
     public class ClienteController : PadraoController<ClienteViewModel>
     {
+        public IActionResult BagUsuario()
+        {
+            ViewBag.Usuario = "sim";
+            return Create();
+        }
 
         public IActionResult Form()
         {
@@ -98,6 +103,7 @@ namespace iKnow.Controllers
                 return Json(new { erro = true, msg = erro.Message });
             }
         }
+
         public override IActionResult Index()
         {
             try
