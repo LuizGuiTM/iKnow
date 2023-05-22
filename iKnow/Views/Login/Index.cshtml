@@ -8,11 +8,13 @@
 </header>
 
 <body class="textured ">
+    <div class="container" style="margin-right: 8vw;">
     <br />
-    <form action="/login/Fazlogin" class="form border border-primary p-4 white FormLogin BorderForms" method="post">
-        <h2 class="text-warning text-dark">Login</h2>
+    <form action="/login/Fazlogin" class="form border border-primary p-4 white FormLogin BorderForms login" method="post">
+            <img src="~/img/iknowfull2.png" style="width:180px; height: auto; margin-left:30%;margin-bottom:10px" />
+            <h2 style="color:#ec673a; font-weight:bold;">Login</h2>
         <div class="row">
-            <div class="col-md-12">
+                <div class="col-md-12" style="font-weight:bold;margin-top:10px">
                 <div class="form-group">
                     <label for="usuario" class="control-label">CPF</label>
                     <input type="text" name="usuario" class="form-control" required placeholder='CPF...' />
@@ -21,16 +23,22 @@
                     <label for="senha" class="control-label">Senha</label>
                     <input type="password" name="senha" class="form-control" required placeholder='Senha...' />
                 </div>
-                <br />
                 <span class="text-danger"> @ViewBag.Erro</span>
-                <input type="submit" value="Login" class="btn btn-primary" />
-                <a href="/funcionario/create" class="btn btn-info">Primeiro Acesso</a>
                 <br />
-                <br />
+                <div style="text-align:center">
+                        <input type="submit" value="Login" class="botaologin" style="background-color: #ec673a; margin-right:15px" />
+                        <input type="button" value="Primeiro Acesso" class="botaologin" style="background-color: #00abbe;text-decoration: none;" onclick="redirecionar()" />
+                </div>
             </div>
         </div>
     </form>
 
-
-
+</div>
 </body>
+
+<script>
+
+    function redirecionar() {
+        window.location.href = "/funcionario/create";
+    }
+</script>

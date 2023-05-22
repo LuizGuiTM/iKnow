@@ -1,7 +1,7 @@
 ﻿@model List<ProdutoViewModel>
 
-<div class="table-scroll">
-    <table class="table table-striped rounded">
+<div class="table-scroll" style="max-height: 37vh;">
+    <table class="table table-striped rounded" style="overflow: auto">
         <tr>
             <th>Ações</th>
             <th>Código</th>
@@ -13,9 +13,9 @@
         @foreach (var produto in Model)
         {
             <tr>
-                <td>
-                    <a href="/produto/Edit?id=@produto.Id" class="btn btn-info">Alterar</a>
-                    <a href="javascript:deleteProduto(@produto.Id)" class="btn btn-danger">X</a>
+                <td style="min-width: 150px;">
+                    <a href="/produto/Edit?id=@produto.Id" class="btn btn-info" style="margin-right: 8px;border-radius: 60px;">Alterar</a>
+                    <a href="javascript:deleteProduto(@produto.Id)" class="btn btn-danger" style="width: 38px;height: 38px;border-radius: 50%;">X</a>
                 </td>
                 <td>@produto.Id</td>
                 <td>@produto.Nome</td>

@@ -4,47 +4,68 @@
 }
 
 <header>
-    <link href="@Url.Content("~/css/home.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(" ~/css/home.css")" rel="stylesheet" type="text/css" />
 </header>
-<body class="textured">
-    <br />
-    <h2 class="h2Conulta">Listagem de Funcionários</h2>
-    <br />
-    <a type="button" href="/funcionario/create" class="btn btn-secondary">Cadastrar novo funcionário</a>
-    <br />
-    <br />
-    <div class="table-responsive white">
-        <div class="table-scroll">
-            <table class="table table-striped rounded">
-                <tr>
-                    <th>Ações</th>
-                    <th>Código</th>
-                    <th>CPF</th>
-                    <th>Nome</th>
-                    <th>Salario</th>
-                    <th>Cargo</th>
-                    <th>Data de Nascimento</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                </tr>
-                @foreach (var funcionario in Model)
-                {
-                    <tr>
-                        <td>
-                            <a href="/funcionario/Edit?id=@funcionario.Id" class="btn btn-info">Alterar</a>
-                            <a href="javascript:deleteFuncionario(@funcionario.Id)" class="btn btn-danger">X</a>
-                        </td>
-                        <td>@funcionario.Id</td>
-                        <td>@funcionario.Cpf</td>
-                        <td>@funcionario.Nome</td>
-                        <td>@funcionario.Salario?.ToString("C")</td>
-                        <td>@funcionario.Cargo</td>
-                        <td>@funcionario.DataNasc?.ToString("yyyy-MM-dd")</td>
-                        <td>@funcionario.Cidade</td>
-                        <td>@funcionario.Estado</td>
-                    </tr>
-                }
-            </table>
+
+<body class="consulta">
+    <div class="container">
+        <div class="divCustom white">
+            <fieldset class="consulta-avancada">
+                <div class="tituloconsulta" style="margin-bottom:20px;">Consulta de Funcionários</div>
+                <div class="camposconsulta">
+                    <div class="row">
+                        <div class="col-3">
+                            Nome<br />
+                            <input type="text" id="nome" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            CPF<br />
+                            <input type="text" id="CPF" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Cargo<br />
+                            <input type="text" id="cargo" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Estado<br />
+                            <input type="text" id="estado" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:5px">
+                        <div class="col-3">
+                            Salario Inicial<br />
+                            <input type="number" id="salarioInicial" step="0.01" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Salario Final<br />
+                            <input type="number" id="salarioFinal" step="0.01" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Cidade<br />
+                            <input type="text" id="cidade" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            <input type="button" id="btnFiltro" class="botaologin" style="margin-top: 10px; background-color:#ec673a;"
+                                   value="Aplicar" onclick="aplicaFiltroConsultaAvancadaFuncionario()" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+@*        <div class="table-retornada">
+            <div id="resultadoConsulta" class="table-responsive white" style="margin-top:40px;">
+        </div>*@
+        <div class="table-retornada" style="max-height: 55vh;padding-bottom: 60px;">
+            <div id="resultadoConsulta" style="max-height: 40vh;">
+            </div>
+            <a type="button" href="/funcionario/create" class="botaologin float-right" style="margin-top: 12px; background-color:#00abbe; text-decoration:none">Cadastrar novo funcionário</a>
         </div>
     </div>
 </body>
+
+<script>
+    window.addEventListener('load', function () {
+        // Faz uma chamada assíncrona para o método da controller
+        aplicaFiltroConsultaAvancadaFuncionario();
+    });
+</script>

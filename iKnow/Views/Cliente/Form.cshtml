@@ -1,77 +1,108 @@
 ﻿@model ClienteViewModel
 @{
     ViewData["Title"] = "Form";
+    if(ViewBag.Usuario == "sim")
+    {
+        ViewBag.Logado = null;
+        ViewBag.Usuario = "sim";
+    }
 }
+
 <header>
     <link href="@Url.Content("~/css/consulta.css")" rel="stylesheet" type="text/css" />
 </header>
-<body class="textured ">
-    <form action="save" method="post" class="form border border-primary p-4 white" enctype="multipart/form-data">
-        <h2 class="text-warning text-dark">Cadastro de Clientes</h2>
-        <br />
 
-        <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
-        <input type="hidden" name="Id" value="@Model.Id" />
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="Nome" class="control-label">Nome Completo</label>
-                    <input type="text" Name="Nome" value="@Model.Nome" class="form-control" />
-                    <span asp-validation-for="Nome" class="text-danger"></span>
+
+    <body class="cadastro">
+    <div class="container">
+        @*<form action="save" method="post" class="form border border-primary p-4 white" enctype="multipart/form-data">*@
+        <form action="save" method="post" class="cadastrocampo" enctype="multipart/form-data">
+            <h2 class="titulocadastro">Cadastro de Clientes</h2>
+            <br />
+            <input type="hidden" name="Usuario" value="@ViewBag.Usuario" />
+            <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Nome" class="control-label">Nome Completo</label>
+                        <input type="text" Name="Nome" value="@Model.Nome" class="form-control" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="CPF" class="control-label">CPF</label>
+                        <input type="text" Name="CPF" value="@Model.Cpf" class="form-control" />
+                        <span asp-validation-for="Cpf" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="DataNasc" class="control-label">Data de nascimento</label>
+                        <input type="date" Name="DataNasc" value="@Model.DataNasc.ToString("yyyy-MM-dd")" class="form-control" />
+                        <span asp-validation-for="DataNasc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Cidade" class="control-label">Cidade</label>
+                        <input type="text" Name="Cidade" value="@Model.Cidade" class="form-control" />
+                        <span asp-validation-for="Cidade" class="text-danger"></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="CPF" class="control-label">CPF</label>
-                    <input type="text" Name="CPF" value="@Model.Cpf" class="form-control" />
-                    <span asp-validation-for="Cpf" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="DataNasc" class="control-label">Data de nascimento</label>
-                    <input type="date" Name="DataNasc" value="@Model.DataNasc.ToString("yyyy-MM-dd")" class="form-control" />
-                    <span asp-validation-for="DataNasc" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="Cidade" class="control-label">Cidade</label>
-                    <input type="text" Name="Cidade" value="@Model.Cidade" class="form-control" />
-                    <span asp-validation-for="Cidade" class="text-danger"></span>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Estado" class="control-label">Estado</label>
+                        <input type="text" Name="Estado" value="@Model.Estado" class="form-control" />
+                        <span asp-validation-for="Estado" class="text-danger"></span>
+                    </div>
+                    @if(ViewBag.Usuario != "sim")
+                    {
+                        <div class="form-group">
+                            <label for="Desconto" class="control-label">Desconto</label>
+                            <input type="number" step="0.01" Name="Desconto" value="@Model.Desconto" class="form-control" />
+                            <span asp-validation-for="Desconto" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Credito" class="control-label">Crédito</label>
+                            <input type="number" step="0.01" Name="Credito" value="@Model.Credito" class="form-control" />
+                            <span asp-validation-for="Credito" class="text-danger"></span>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <label for="Imagem" class="control-label">Documento de Renda</label> <br />
+                        <input type="file" name="Imagem" id="Imagem" onchange="exibirImagem()" class="inseririmagem">
+                        <img id="imgPreview" src="data:image/jpeg;base64,@Model.ImagemEmBase64" class="img-responsive" style="padding-top:10px;" width="100">
+
+                        <span asp-validation-for="Imagem" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="Estado" class="control-label">Estado</label>
-                    <input type="text" Name="Estado" value="@Model.Estado" class="form-control" />
-                    <span asp-validation-for="Estado" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="Desconto" class="control-label">Desconto</label>
-                    <input type="number" step="0.01" Name="Desconto" value="@Model.Desconto" class="form-control" />
-                    <span asp-validation-for="Desconto" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="Credito" class="control-label">Crédito</label>
-                    <input type="number" step="0.01" Name="Credito" value="@Model.Credito" class="form-control" />
-                    <span asp-validation-for="Credito" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="file" name="Imagem" id="Imagem" onchange="exibirImagem()" class="btn btn-secondary">
-                    <img id="imgPreview" src="data:image/jpeg;base64,@Model.ImagemEmBase64" class="img-responsive" width="100">
-                    <span asp-validation-for="Imagem" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <br />
-        <button type="submit" class="btn btn-primary">Salvar dados</button>
-        <br />
-    </form>
+            <br />
+            <button type="submit" class="botaologin" style="background-color:#ec673a;">Salvar dados</button>
+            <br />
+        </form>
+    </div>
+    </body>
 
-</body>
+
+<style>
+    #imgPreview {
+        display: none;
+    }
+</style>
 
 <script>
     function exibirImagem() {
-        var oFReader = new FileReader();
-        oFReader.readAsDataURL(document.getElementById("Imagem").files[0]);
-        oFReader.onload = function (oFREvent) {
-            document.getElementById("imgPreview").src = oFREvent.target.result;
-        };
+        var fileInput = document.getElementById("Imagem");
+        var imgPreview = document.getElementById("imgPreview");
+
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                imgPreview.src = e.target.result;
+                imgPreview.style.display = "block"; // Mostra a imagem
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        } else {
+            imgPreview.src = "";
+            imgPreview.style.display = "none"; // Esconde a imagem
+        }
     }
 </script>
 
