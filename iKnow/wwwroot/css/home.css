@@ -83,7 +83,26 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.botaocadastro {
+
+.inseririmagem {
+    background-color:white;
+    border:none;
+}
+
+.displayimagem {
+    display:inline !important;
+}
+.cadastro {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('../img/fundocadastro.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    .botaocadastro {
     background-color: brown;
     color: white;
     transition-duration: 0.4s;
@@ -363,4 +382,62 @@ body {
     list-style: none;
     padding-left: 0px;
     padding-top: 20px;
+}
+
+.tituloconsulta {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    margin-top: -57px !important;
+}
+
+.titulocadastro {
+    font-size: 34px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    margin-top: -61px !important;
+    margin-bottom: 23px;
+}
+
+.consulta-avancada {
+    background: white;
+    border-top: 50px solid #ec673a;
+    margin-top: 25px;
+    padding: 15px;
+    padding-top: -30px !important;
+    box-shadow: rgba(0,0,0,0.3) 4px 4px;
+    border-bottom: 5px solid #ec673a !important;
+    border-radius: 10px;
+    padding-bottom: 22px;
+}
+
+.cadastrocampo {
+    background: white;
+    border-top: 72px solid #ec673a;
+    margin-top: 25px;
+    padding: 15px;
+    padding-top: -30px !important;
+    box-shadow: rgba(0,0,0,0.3) 4px 4px;
+    border-bottom: 5px solid #ec673a !important;
+    border-radius: 10px;
+    padding-bottom: 22px;
+}
+
+.table-retornada {
+    background: white;
+    border-top: 60px solid #00abbe;
+    margin-top: 25px;
+    padding: 15px;
+    padding-top: -30px !important;
+    box-shadow: rgba(0,0,0,0.3) 4px 4px;
+    border-bottom: 5px solid #00abbe !important;
+    border-radius: 10px;
+    padding-bottom: 22px;
+}
+
+.camposconsulta {
+    font-weight: bold;
+    color: #078997;
 }

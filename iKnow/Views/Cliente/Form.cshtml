@@ -13,10 +13,11 @@
 </header>
 
 
-    <body class="textured">
+    <body class="cadastro">
     <div class="container">
-        <form action="save" method="post" class="form border border-primary p-4 white" enctype="multipart/form-data">
-            <h2 class="text-warning text-dark">Cadastro de Clientes</h2>
+        @*<form action="save" method="post" class="form border border-primary p-4 white" enctype="multipart/form-data">*@
+        <form action="save" method="post" class="cadastrocampo" enctype="multipart/form-data">
+            <h2 class="titulocadastro">Cadastro de Clientes</h2>
             <br />
             <input type="hidden" name="Usuario" value="@ViewBag.Usuario" />
             <input type="hidden" name="Operacao" value="@ViewBag.Operacao" />
@@ -64,15 +65,16 @@
                         </div>
                     }
                     <div class="form-group">
-                        <input type="file" name="Imagem" id="Imagem" onchange="exibirImagem()" class="btn btn-secondary">
-                        <img id="imgPreview" src="data:image/jpeg;base64,@Model.ImagemEmBase64" class="img-responsive" width="100">
+                        <label for="Imagem" class="control-label">Documento de Renda</label> <br />
+                        <input type="file" name="Imagem" id="Imagem" onchange="exibirImagem()" class="inseririmagem">
+                        <img id="imgPreview" src="data:image/jpeg;base64,@Model.ImagemEmBase64" class="img-responsive" style="padding-top:10px;" width="100">
 
                         <span asp-validation-for="Imagem" class="text-danger"></span>
                     </div>
                 </div>
             </div>
             <br />
-            <button type="submit" class="btn btn-primary">Salvar dados</button>
+            <button type="submit" class="botaologin" style="background-color:#ec673a;">Salvar dados</button>
             <br />
         </form>
     </div>

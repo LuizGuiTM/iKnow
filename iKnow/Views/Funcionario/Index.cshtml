@@ -10,8 +10,8 @@
 <body class="consulta">
     <div class="container">
         <div class="divCustom white">
-            <fieldset class="fieldsetCustom">
-                <div style="margin-top:2% !important; margin-bottom:1%">Consulta de Funcionários</div>
+            <fieldset class="consulta-avancada">
+                <div class="tituloconsulta" style="margin-bottom:20px;">Consulta de Funcionários</div>
                 <div class="camposconsulta">
                     <div class="row">
                         <div class="col-3">
@@ -30,30 +30,35 @@
                             Estado<br />
                             <input type="text" id="estado" class="form-control" />
                         </div>
+                    </div>
+                    <div class="row" style="margin-top:5px">
+                        <div class="col-3">
+                            Salario Inicial<br />
+                            <input type="number" id="salarioInicial" step="0.01" class="form-control" />
                         </div>
-                        <div class="row" style="margin-top:2%">
                         <div class="col-3">
-                                Desconto Inicial<br />
-                                <input type="number" id="salarioInicial" step="0.01" class="form-control" />
-                            </div>
-                        <div class="col-3">
-                                Desconto Final<br />
-                                <input type="number" id="salarioFinal" step="0.01" class="form-control" />
-                            </div>
+                            Salario Final<br />
+                            <input type="number" id="salarioFinal" step="0.01" class="form-control" />
+                        </div>
                         <div class="col-3">
                             Cidade<br />
                             <input type="text" id="cidade" class="form-control" />
                         </div>
                         <div class="col-3">
-                            <input type="button" id="btnFiltro" class="btn btn-success" style="margin-top: 10%;" value="Aplicar"
-                                   onclick="aplicaFiltroConsultaAvancadaFuncionario()" />
+                            <input type="button" id="btnFiltro" class="botaologin" style="margin-top: 10px; background-color:#ec673a;"
+                                   value="Aplicar" onclick="aplicaFiltroConsultaAvancadaFuncionario()" />
                         </div>
-                        </div>
+                    </div>
                 </div>
             </fieldset>
         </div>
-        <a type="button" class="btn btn-success" href="/funcionario/create">Novo Funcionario</a>
-        <div id="resultadoConsulta" class="table-responsive white">
+@*        <div class="table-retornada">
+            <div id="resultadoConsulta" class="table-responsive white" style="margin-top:40px;">
+        </div>*@
+        <div class="table-retornada" style="max-height: 55vh;padding-bottom: 60px;">
+            <div id="resultadoConsulta" style="max-height: 40vh;">
+            </div>
+            <a type="button" href="/funcionario/create" class="botaologin float-right" style="margin-top: 12px; background-color:#00abbe; text-decoration:none">Cadastrar novo funcionário</a>
         </div>
     </div>
 </body>

@@ -4,47 +4,51 @@
 }
 
 <header>
-    <link href="@Url.Content("~/css/consulta.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content(" ~/css/home.css")" rel="stylesheet" type="text/css" />
 </header>
 
 <body class="consulta">
-<div class="container">
-        <h2 style="color: #FFF" class="h2Consulta">Listagem de Clientes</h2>
-        <a type="button" class="btn btn-success" href="/cliente/create">Novo cliente</a>
-        <br />
+    <div class="container">
         <div class="divCustom white">
-            <fieldset class="fieldsetCustom">
-                <legend>Consulta de Clientes</legend>
-                <div class="row">
-                    <div class="col-lg-4">
-                        Nome<br />
-                        <input type="text" id="nome" class="form-control" />
+            <fieldset class="consulta-avancada">
+                <div class="tituloconsulta" style="margin-bottom:20px;">Consulta de Clientes</div>
+                <div class="camposconsulta">
+                    <div class="row">
+                        <div class="col-3">
+                            Nome<br />
+                            <input type="text" id="nome" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            CPF<br />
+                            <input type="text" id="CPF" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Desconto Inicial<br />
+                            <input type="number" id="descontoInicial" step="0.01" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Desconto Final<br />
+                            <input type="number" id="descontoFinal" step="0.01" class="form-control" />
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        CPF<br />
-                        <input type="text" id="CPF" class="form-control" />
-                    </div>
-                    <div class="col-lg-4">
-                        Desconto Inicial<br />
-                        <input type="number" id="descontoInicial" step="0.01" class="form-control" />
-                    </div>
-                    <div class="col-lg-4">
-                        Desconto Final<br />
-                        <input type="number" id="descontoFinal" step="0.01" class="form-control" />
-                    </div>
-                    <div class="col-lg-1">
-                        <br />
-                        <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
-                               onclick="aplicaFiltroConsultaAvancadaCliente()" />
+                    <div class="row" style="margin-top:5px">
+                        <div class="col-3">
+                            <input type="button" id="btnFiltro" class="botaologin" style="margin-top: 10px; background-color:#ec673a;"
+                                   value="Aplicar" onclick="aplicaFiltroConsultaAvancadaCliente()" />
+                        </div>
                     </div>
                 </div>
             </fieldset>
         </div>
-        <div id="resultadoConsulta" class="table-responsive white">
+        @*        <div class="table-retornada">
+        <div id="resultadoConsulta" class="table-responsive white" style="margin-top:40px;">
+        </div>*@
+        <div class="table-retornada" style="max-height: 55vh;padding-bottom: 60px;">
+            <div id="resultadoConsulta" style="max-height: 40vh;">
+            </div>
         </div>
-</div>
+    </div>
 </body>
-
 
 <script>
     window.addEventListener('load', function () {

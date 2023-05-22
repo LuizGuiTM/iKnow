@@ -29,6 +29,15 @@ namespace iKnow.Controllers
                 ModelState.AddModelError("Senha", "Preencha a sua senha.");
         }
 
+        protected override void PreencheDadosParaView(string Operacao, FuncionarioViewModel model)
+        {
+            base.PreencheDadosParaView(Operacao, model);
+            if(Operacao == "I")
+            {
+                model.DataNasc = DateTime.Now;
+            }
+        }
+
         public IActionResult SaveFunc(FuncionarioViewModel model, string Operacao)
         {
             try
