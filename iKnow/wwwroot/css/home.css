@@ -1,4 +1,102 @@
 
+.textoErroMensagem {
+    color: black;
+    margin: auto;
+    font-weight: bold;
+    height: fit-content;
+}
+
+.textoErro {
+    background-color: #fed0d0 !important;
+    max-width: fit-content;
+    min-width: 40px;
+    height: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    top: 80px;
+    position: relative;
+    padding-left: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 30px;
+    box-shadow: 0px 0px 0px 3px rgba(255, 94, 94, 0.4);
+    align-content: center;
+}
+
+.div-carrinho {
+    display: flex;
+    min-width: fit-content;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* max-width: 800px; */
+    min-height: 485px;
+    max-height: 485px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* align-content: center; */
+    flex-wrap: wrap;
+    margin: auto;
+    flex-direction: column;
+}
+
+.table-compras {
+    background: white;
+    border-top: 60px solid #00abbe;
+    margin-top: 13px;
+    /* padding: 15px; */
+    padding-top: -30px !important;
+    box-shadow: rgba(0,0,0,0.3) 4px 4px;
+    border-bottom: 5px solid #00abbe !important;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+.table-carrinho-head {
+    background-color: #00abbe;
+    padding-bottom: 40px;
+}
+
+.table-carrinho-body {
+    padding-bottom: 10px;
+}
+.table-carrinho {
+    max-height: 410px;
+    /* padding-bottom: 60px; */
+    margin-bottom: 50px;
+    min-height: fit-content;
+    min-width: 600px;
+    /* padding: 50px; */
+    /* padding-left: 500px; */
+    margin-top: 0;
+    background: white;
+    /* border-top: 60px solid #00abbe; */
+    padding: 15px;
+    padding-top: -30px !important;
+    box-shadow: rgba(0,0,0,0.3) 4px 4px;
+    /* border-bottom: 5px solid #00abbe !important; */
+    border-radius: 10px;
+    padding-bottom: 22px;
+}
+
+.xErro {
+    height: 22px;
+    width: 22px;
+    display: inline-flex;
+    align-items: center;
+    background-color: darkred;
+    border-radius: 50%;
+    justify-content: center;
+    margin-right: 6px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 11px;
+}
+
 .loja {
     display: flex;
     margin: 0;
@@ -79,6 +177,17 @@
     padding: 0;
     height: 100%;
     background-image: url('../img/fundoconsulta.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parabens {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url('../img/fundoparabensjpg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

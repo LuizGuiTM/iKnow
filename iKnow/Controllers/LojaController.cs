@@ -302,5 +302,10 @@ namespace iKnow.Controllers
             HttpContext.Session.Remove("carrinho");
             return Index();
         }
+        
+        public IActionResult Parabens()
+        {
+            return View("Parabens");
+        }
     }
 }

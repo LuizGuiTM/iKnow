@@ -295,6 +295,16 @@ function deleteCarrinho() {
     }
 }
 
+function limpaCarrinhoSession() {
+    var api = "/Loja/RemoveCarrinho";
+    $.ajax({
+        url: api,
+        success: function (dados) {
+            console.log("Carrinho apagado.");
+        }
+    })
+}
+
 function ColetaDadosDashboard() {
     $.ajax({
         type: "POST",

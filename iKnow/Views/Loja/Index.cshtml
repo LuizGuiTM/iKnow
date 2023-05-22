@@ -21,15 +21,17 @@
             <br />
             <br />
             @*<p class="textoLoja">Não possui cadastro?</p>*@
-            <input type="button" id="cadastro" class="botaocadastro" value="Não possui cadastro? Clique aqui para cadastrar-se" onclick="irparacadastro()" />
-            <div class="textoErro">
+            <input type="button" id="cadastro" class="botaocadastro" style="bottom: 22px;position: relative;" value="Não possui cadastro? Clique aqui para cadastrar-se" onclick="irparacadastro()" />
+
 
                 @if (ViewBag.Erro != null)
                 {
-                    <p style="color:red">@ViewBag.Erro</p>
+                <div class="textoErro">
+                    <div class="xErro">X</div>
+                    <p class="textoErroMensagem">@ViewBag.Erro</p>
+                </div>
                 }
-                
-            </div>
+
             <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
 
         </div>
@@ -40,7 +42,11 @@
 <script>
 
     $(document).ready(function () {
+        limpaCarrinhoSession();
+        console.log("Coisa 1 aconteceu");
         apagaqrcode();
+        console.log("Coisa 2 aconteceu");
         enviaqrcode("usuario");
+        console.log("Coisa 3 aconteceu");
     });
 </script>

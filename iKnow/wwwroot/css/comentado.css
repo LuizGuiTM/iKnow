@@ -1,0 +1,47 @@
+﻿/*
+    .textoErro {
+    background-color: #fed0d0 !important;
+    max-width: fit-content;
+    min-width: 40px;
+    height: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    justify-content: center;
+    top: 80px;
+    position: relative;
+    padding-left: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 30px;
+    box-shadow: 0px 0px 0px 3px rgba(255, 94, 94, 0.4);
+}
+
+.xErro {
+    height: 25px;
+    width: 25px;
+    display: inline-flex;
+    align-items: center;
+    background-color: darkred;
+    border-radius: 50%;
+    justify-content: center;
+    margin-right: 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}*/
+
+/*.first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: lightgray;
+}
+
+.second {
+    height: 40px;
+    background-color: gray;
+}*/

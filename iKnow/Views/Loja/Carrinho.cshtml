@@ -1,35 +1,42 @@
 ﻿@model List<CarrinhoViewModel>
 <form>
     @*<table class="table table-striped" style="table-layout:fixed">*@
-    <table class="listadocarrinho table-responsive">
-        <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
-        <thead>
-        <tr>
-            <th>Prévia</th>
-            <th>Nome</th>
-            <th>Gênero</th>
-            <th>Valor</th>
-            <th>Quantidade</th>
-            </tr>
-        </thead>
-        <tbody>
-         @foreach (var p in Model)
-        {
-            <tr>
-                <td>
-                    <img src="data:image/jpeg;base64,@p.ImagemEmBase64" style="width: 90px; height: auto; object-fit:contain">
-                </td>
-                <td>@p.Nome</td>
-                <td>@p.Categoria</td>
-                <td>@p.Preco.ToString("0.00")</td>
-                <td>@p.QtdProduto</td>
-            </tr>
-        }
-        </tbody>
-    </table>
+    <div class="table-compras">
+        <div class="table-scroll" style="max-height: 350px;">
+            <table class="table table-striped rounded text-center" style="overflow: auto">
+                <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
+                <thead style="color: #ec673a;font-weight:bold">
+                    <tr>
+                        <th>Prévia</th>
+                        <th>Nome</th>
+                        <th>Gênero</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model)
+                    {
+                        <tr>
+                            <td style="vertical-align:middle">
+                                <img src="data:image/jpeg;base64,@p.ImagemEmBase64" loading="lazy" style="width: 70px; height: auto; object-fit:contain">
+                            </td>
+                            <td style="vertical-align:middle">@p.Nome</td>
+                            <td style="vertical-align:middle">@p.Categoria</td>
+                            <td style="vertical-align:middle">@p.Preco.ToString("0.00")</td>
+                            <td style="vertical-align:middle">@p.QtdProduto</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </form>
 
 @if (ViewBag.Erro != null)
 {
-    <p style="color:red">@ViewBag.Erro</p>
+    <div class="textoErro" style="top:105px">
+        <div class="xErro">X</div>
+        <p class="textoErroMensagem">@ViewBag.Erro</p>
+    </div>
 }

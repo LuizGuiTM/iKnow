@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using iKnow.DAO;
 using System.IO;
+using CadastroAlunoV1.Controllers;
 
 namespace iKnow.Controllers
 {
@@ -108,6 +109,14 @@ namespace iKnow.Controllers
         {
             try
             {
+                if (!HelperControllers.VerificaUserLogado(HttpContext.Session))
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+                else
+                {
+                    ViewBag.Logado = true;
+                }
                 return View(NomeViewIndex);
             }
             catch (Exception erro)
