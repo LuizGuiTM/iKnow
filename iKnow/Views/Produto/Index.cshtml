@@ -9,49 +9,53 @@
 
 
 
-    <body class="textured">
+<header>
+    <link href="@Url.Content(" ~/css/home.css")" rel="stylesheet" type="text/css" />
+</header>
+
+<body class="consulta">
     <div class="container">
-        <br />
-        <h2 class="h2Consulta">Listagem de Produtos</h2>
-
-        <br />
-
-        <a type="button" class="btn btn-secondary" href="/produto/create">Novo produto</a>
-        <br />
         <div class="divCustom white">
-
-            <fieldset class="fieldsetCustom">
-                <legend>Consulta de Produtos</legend>
-                <div class="row">
-                    <div class="col-lg-4">
-                        Nome<br />
-                        <input type="text" id="nome" class="form-control" />
+            <fieldset class="consulta-avancada">
+                <div class="tituloconsulta" style="margin-bottom:20px;">Consulta de Produtos</div>
+                <div class="camposconsulta">
+                    <div class="row">
+                        <div class="col-3">
+                            Nome<br />
+                            <input type="text" id="nome" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Categoria<br />
+                            <input type="text" id="categoria" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Preço Inicial<br />
+                            <input type="number" id="precoInicial" step="0.01" class="form-control" />
+                        </div>
+                        <div class="col-3">
+                            Preço Final<br />
+                            <input type="number" id="precoFinal" step="0.01" class="form-control" />
+                        </div>
                     </div>
-                    <div class="col-lg-4">
-                        Categoria<br />
-                        <input type="text" id="categoria" class="form-control" />
-                    </div>
-                    <div class="col-lg-4">
-                        Preço inicial<br />
-                        <input type="number" id="precoInicial" step="0.01" class="form-control" />
-                    </div>
-                    <div class="col-lg-4">
-                        Preço Final<br />
-                        <input type="number" id="precoFinal" step="0.01" class="form-control" />
-                    </div>
-                    <div class="col-lg-1">
-                        <br />
-                        <input type="button" id="btnFiltro" class="btn btn-success" value="Aplicar"
-                               onclick="aplicaFiltroConsultaAvancada()" />
+                    <div class="row" style="margin-top:5px">
+                        <div class="col-3">
+                            <input type="button" id="btnFiltro" class="botaologin" style="margin-top: 10px; background-color:#ec673a;"
+                                   value="Aplicar" onclick="aplicaFiltroConsultaAvancada()" />
+                        </div>
                     </div>
                 </div>
             </fieldset>
-
         </div>
-        <div id="resultadoConsulta" class="table-responsive white">
+        @*        <div class="table-retornada">
+        <div id="resultadoConsulta" class="table-responsive white" style="margin-top:40px;">
+        </div>*@
+        <div class="table-retornada" style="max-height: 55vh;padding-bottom: 60px;">
+            <div id="resultadoConsulta" style="max-height: 40vh;">
+            </div>
+            <a type="button" href="/produto/create" class="botaologin float-right" style="margin-top: 12px; background-color:#00abbe; text-decoration:none;">Cadastrar novo produto</a>
         </div>
     </div>
-    </body>
+</body>
 
 
 

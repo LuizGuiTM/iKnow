@@ -21,7 +21,7 @@
             <br />
             <br />
             @*<p class="textoLoja">Não possui cadastro?</p>*@
-            <input type="button" class="botaocadastro" value="Não possui cadastro? Clique aqui para cadastrar-se" onclick="location.href='@Url.Action("Create","Cliente")'" />
+            <input type="button" id="cadastro" class="botaocadastro" value="Não possui cadastro? Clique aqui para cadastrar-se" onclick="irparacadastro()" />
             <div class="textoErro">
 
                 @if (ViewBag.Erro != null)
@@ -38,6 +38,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+
     $(document).ready(function () {
         apagaqrcode();
         enviaqrcode("usuario");

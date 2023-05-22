@@ -46,7 +46,7 @@ namespace iKnow.Controllers
             if (GeraProximoId && Operacao == "I")
                 model.Id = DAO.ProximoId();
         }
-        public virtual IActionResult Save(T model, string Operacao)
+        public virtual IActionResult Save(T model, string Operacao, string Usuario)
         {
             try
             {
@@ -54,6 +54,7 @@ namespace iKnow.Controllers
                 if (ModelState.IsValid == false)
                 {
                     ViewBag.Operacao = Operacao;
+                    ViewBag.Usuario = Usuario;
                     PreencheDadosParaView(Operacao, model);
                     return View(NomeViewForm, model);
                 }
@@ -63,6 +64,12 @@ namespace iKnow.Controllers
                         DAO.Insert(model);
                     else
                         DAO.Update(model);
+                    if (Usuario == "sim")
+                    {
+                        ViewBag.Cadastrado = "sim";
+                        return RedirectToAction("Index", "Loja"); 
+                    }
+                    
                     return RedirectToAction(NomeViewIndex);
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using iKnow.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
@@ -99,6 +100,30 @@ namespace iKnow.DAO
         protected override void SetTabela()
         {
             Tabela = "Funcionarios";
+        }
+
+        public List<FuncionarioViewModel> ConsultaAvancadaFuncionarios(string nome,
+                                                 string cpf,
+                                                 string cargo,
+                                                 string estado,
+                                                 string cidade,
+                                                 double salarioInicial,
+                                                 double salarioFinal)
+        {
+            SqlParameter[] p = {
+             new SqlParameter("nome", nome),
+             new SqlParameter("cpf", cpf),
+             new SqlParameter("cargo", cargo),
+             new SqlParameter("estado", estado),
+             new SqlParameter("cidade", cidade),
+             new SqlParameter("salarioInicial", salarioInicial),
+             new SqlParameter("salarioFinal", salarioFinal)
+            };
+            var tabela = HelperDAO.ExecutaProcSelect("spConsultaAvancadaFuncionarios", p);
+            var lista = new List<FuncionarioViewModel>();
+            foreach (DataRow dr in tabela.Rows)
+                lista.Add(MontaModel(dr));
+            return lista;
         }
     }
 }

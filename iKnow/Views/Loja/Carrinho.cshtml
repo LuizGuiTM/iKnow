@@ -1,18 +1,23 @@
 ﻿@model List<CarrinhoViewModel>
 <form>
-    <table class="table table-striped" style="table-layout:fixed">
+    @*<table class="table table-striped" style="table-layout:fixed">*@
+    <table class="listadocarrinho table-responsive">
         <input type="hidden" id="operacao" value="@ViewBag.Operacao" />
+        <thead>
         <tr>
             <th>Prévia</th>
             <th>Nome</th>
             <th>Gênero</th>
             <th>Valor</th>
             <th>Quantidade</th>
-        </tr> @foreach (var p in Model)
+            </tr>
+        </thead>
+        <tbody>
+         @foreach (var p in Model)
         {
             <tr>
                 <td>
-                    <img src="data:image/jpeg;base64,@p.ImagemEmBase64" style="width: 100px; height: auto; object-fit:contain">
+                    <img src="data:image/jpeg;base64,@p.ImagemEmBase64" style="width: 90px; height: auto; object-fit:contain">
                 </td>
                 <td>@p.Nome</td>
                 <td>@p.Categoria</td>
@@ -20,6 +25,7 @@
                 <td>@p.QtdProduto</td>
             </tr>
         }
+        </tbody>
     </table>
 </form>
 
