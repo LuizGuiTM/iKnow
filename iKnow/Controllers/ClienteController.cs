@@ -48,21 +48,27 @@ namespace iKnow.Controllers
             base.ValidaDados(model, operacao);
             if (string.IsNullOrEmpty(model.Nome))
                 ModelState.AddModelError("Nome", "Preencha o nome.");
-            //Imagem será obrigatio apenas na inclusão.
-            //Na alteração iremos considerar a que já estava salva.
-            if (model.Imagem == null && operacao == "I")
-                ModelState.AddModelError("Imagem", "Escolha uma imagem.");
+
+            if (string.IsNullOrEmpty(model.Cpf))
+                ModelState.AddModelError("Cpf", "Preencha o seu CPF.");
+
+            if (ClienteDAO.getInstance().Consulta(model.Cpf) != null && operacao == "I")
+                ModelState.AddModelError("Cpf", "Este CPF já existe");
+
+            if (model.DataNasc == null || model.DataNasc > DateTime.Now)
+                ModelState.AddModelError("DataNasc", "Preencha a data de nascimento corretamente.");
+
             if (model.Imagem != null && model.Imagem.Length / 1024 / 1024 >= 2)
                 ModelState.AddModelError("Imagem", "Imagem limitada a 2 mb.");
             if (ModelState.IsValid)
             {
-                //na alteração, se não foi informada a imagem, iremos manter a que já estava salva.
+                
                 if (operacao == "A" && model.Imagem == null)
                 {
                     ClienteViewModel cid = DAO.Consulta(model.Id);
                     model.ImagemEmByte = cid.ImagemEmByte;
                 }
-                else
+                else if (operacao == "A" || (operacao == "I" && model.Imagem != null))
                 {
                     model.ImagemEmByte = ConvertImageToByte(model.Imagem);
                 }

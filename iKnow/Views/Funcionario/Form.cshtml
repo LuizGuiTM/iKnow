@@ -24,12 +24,12 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Cpf" class="control-label">CPF</label>
-                        <input type="text" name="Cpf" value="@Model.Cpf" class="form-control" />
+                        <input type="text" name="Cpf" value="@Model.Cpf" class="form-control" required/>
                         <span asp-validation-for="Cpf" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label for="Senha" class="control-label">Senha</label>
-                        <input type="password" name="Senha" value="@Model.Senha" class="form-control" />
+                        <input type="password" name="Senha" value="@Model.Senha" class="form-control" required />
                         <span asp-validation-for="Senha" class="text-danger"></span>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     {
                         <div class="form-group">
                             <label for="Cpf" class="control-label">CPF</label>
-                            <input type="text" Name="Cpf" value="@Model.Cpf" class="form-control" />
+                            <input type="text" Name="Cpf" value="@Model.Cpf" class="form-control" required />
                         </div>
                     }
                     else
@@ -61,7 +61,7 @@
 
                     <div class="form-group">
                         <label for="Nome" class="control-label">Nome</label>
-                        <input type="text" Name="Nome" value="@Model.Nome" class="form-control" />
+                        <input type="text" Name="Nome" value="@Model.Nome" class="form-control" required />
                         <span asp-validation-for="Nome" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -96,7 +96,7 @@
                     {
                         <div class="form-group">
                             <label for="Senha" class="control-label">Senha</label>
-                            <input type="password" Name="Senha" value="@Model.Senha" class="form-control" />
+                            <input type="password" Name="Senha" value="@Model.Senha" class="form-control" required />
                         </div>
                     }
                     else

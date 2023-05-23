@@ -25,6 +25,8 @@ namespace iKnow.Controllers
                 ModelState.AddModelError("Cpf", "Preencha o seu CPF.");
             if (FuncionarioDAO.getInstance().Consulta(model.Cpf) != null && operacao == "I")
                 ModelState.AddModelError("Cpf", "Este CPF já existe");
+            if (model.DataNasc == null || model.DataNasc > DateTime.Now)
+                ModelState.AddModelError("DataNasc", "Preencha a data de nascimento corretamente.");
             if (string.IsNullOrEmpty(model.Senha))
                 ModelState.AddModelError("Senha", "Preencha a sua senha.");
         }

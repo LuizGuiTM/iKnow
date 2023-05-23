@@ -530,6 +530,30 @@ select count(id) as 'Value', Categoria as 'Label' from Produtos group by categor
 --Quantiadade disponivel de produtos por Categoria (Donut Graph)
 select sum(QuantidadeDisponivel) as 'Value', Categoria as 'Label' from Produtos group by categoria
 
+
+
+
+		Create procedure [dbo].[spConsultaAvancadaFuncionarios]
+(
+     @nome varchar(max),
+    @cpf varchar(max),
+    @cargo varchar(max),
+    @estado varchar(max),
+    @cidade varchar(max),
+    @salarioInicial float,
+    @salarioFinal float
+    )
+as
+begin
+ select *
+from Funcionarios
+where Funcionarios.Nome like '%' + @nome + '%' and
+ Funcionarios.Salario between @salarioInicial and @salarioFinal and
+ Funcionarios.Cargo like '%' +@cargo + '%' and
+ Funcionarios.CPF like '%' + @cpf + '%' and
+ Funcionarios.Estado like '%' + @estado + '%' and
+ Funcionarios.Cidade like '%' + @cidade + '%';
+end
          */
 	}
 }
