@@ -162,8 +162,9 @@ body {
         border: 1px solid gray;
         padding: 5px;
 }
+
 /.vs/
-/iKnow/obj
+/iKnow/obj/
 /iKnow/bin/
 /.vs/iKnow/FileContentIndex/fbdec969-4403-4570-a8d6-58f6876bd45b.vsidx
 /.vs/iKnow/FileContentIndex/eca79b05-4ee9-490a-b83f-ea6a4d55f28f.vsidx
