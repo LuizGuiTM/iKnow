@@ -173,22 +173,23 @@
 
 .textoParabens {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 100px;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    /* top: 61px; */
+    margin: auto;
+    /* margin-top: 30px; */
+    /* margin-bottom: auto; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    top: 10px;
     position: relative;
     min-height: 600px;
     font-weight: bolder;
-    /* justify-content: center; */
     align-items: center;
     color: white;
     text-shadow: -3px 2px 5px BLACK;
     align-content: center;
-    text-align: center;
+    text-align: center !important;
+    justify-content: center;
 }
 
 .consulta {
