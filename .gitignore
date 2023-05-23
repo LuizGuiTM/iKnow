@@ -162,6 +162,10 @@ body {
         border: 1px solid gray;
         padding: 5px;
 }
+
+/.vs/
+/iKnow/obj/
+/iKnow/bin/
 /.vs/iKnow/FileContentIndex/fbdec969-4403-4570-a8d6-58f6876bd45b.vsidx
 /.vs/iKnow/FileContentIndex/eca79b05-4ee9-490a-b83f-ea6a4d55f28f.vsidx
 /.vs/iKnow/FileContentIndex/e5bd6e41-cb78-4c07-9fa5-5d8efadec21f.vsidx
@@ -204,3 +208,19 @@ body {
 /iKnow/obj/Debug/netcoreapp3.1/iKnow.genruntimeconfig.cache
 /iKnow/obj/Debug/netcoreapp3.1/iKnow.dll
 /iKnow/obj/Debug/netcoreapp3.1/iKnow.csproj.FileListAbsolute.txt
+/.vs/iKnow/FileContentIndex/a87c88ac-42cc-45a6-960d-543c14f15c40.vsidx
+/.vs/iKnow/FileContentIndex/a6f3ff18-6f80-4fa8-baea-82fd3c2ea816.vsidx
+/.vs/iKnow/FileContentIndex/870f76c6-7f7f-4e32-bd52-5e28eec3bb33.vsidx
+/.vs/iKnow/DesignTimeBuild/.dtbcache.v2
+/iKnow/obj/Debug/netcoreapp3.1/staticwebassets/msbuild.iKnow.Microsoft.AspNetCore.StaticWebAssets.props
+/iKnow/obj/Debug/netcoreapp3.1/staticwebassets/iKnow.StaticWebAssets.Pack.cache
+/iKnow/obj/Debug/netcoreapp3.1/project.razor.vs.json
+/iKnow/obj/Debug/netcoreapp3.1/iKnow.Views.pdb
+/iKnow/obj/Debug/netcoreapp3.1/iKnow.Views.dll
+/iKnow/obj/Debug/netcoreapp3.1/iKnow.RazorCoreGenerate.cache
+/iKnow/obj/Debug/netcoreapp3.1/iKnow.csproj.FileListAbsolute.txt
+/iKnow/bin/Debug/netcoreapp3.1/iKnow.Views.pdb
+/iKnow/bin/Debug/netcoreapp3.1/iKnow.Views.dll
+/.vs/iKnow/v17/.suo
+/.vs/slnx.sqlite
+/iKnow/obj/Debug/netcoreapp3.1/Razor/Views/Loja/Parabens.cshtml.g.cs

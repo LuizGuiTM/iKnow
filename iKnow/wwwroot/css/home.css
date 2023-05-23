@@ -171,6 +171,27 @@
     background-size: cover;
 }
 
+.textoParabens {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    /* margin-top: 30px; */
+    /* margin-bottom: auto; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    top: 10px;
+    position: relative;
+    min-height: 600px;
+    font-weight: bolder;
+    align-items: center;
+    color: white;
+    text-shadow: -3px 2px 5px BLACK;
+    align-content: center;
+    text-align: center !important;
+    justify-content: center;
+}
+
 .consulta {
     display: flex;
     margin: 0;
@@ -187,7 +208,7 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image: url('../img/fundoparabensjpg.jpg');
+    background-image: url('../img/fundooutro.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
