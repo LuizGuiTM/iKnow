@@ -1,11 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Bem vindo à iKnow";
 }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
 
-<body class="parabens">
-    <div class="container">
-        <h1>Parabéns</h1>
+        h1, h2 {
+            font-family: Tahoma, sans-serif;
+            color: #FFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="texturedHome">
+    <div class="hometext" id="hometext">
+        <div class="titulo">
+            <img src="img/iknowfull2.png" style="width:600px; height:auto; -webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1>Bem vindo à iKnow</h1>
+            <h2 style="font-size: 16px">A primeira livraria automatizada do Brasil</h2>
+        </div>
     </div>
 </body>
